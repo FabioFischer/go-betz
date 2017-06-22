@@ -8,7 +8,7 @@
   - [ ] A prova de falsidade
 
 - [ ] Confidencialidade
- - [ ] Segredo / Sigilo / AES
+  - [ ] Segredo / Sigilo / AES
 
 - [ ] Autenticação
- - [ ] Hash + Salt
+  - [ ] Hash + Salt
