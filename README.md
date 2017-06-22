@@ -2,13 +2,13 @@
 
 ## Requisitos
 
-[ ] Matriz de Controle de Acesso
+- [ ] Matriz de Controle de Acesso
 
-[ ] Integridade
+- [ ] Integridade
   - [ ] A prova de falsidade
 
-[ ] Confidencialidade
+- [ ] Confidencialidade
  - [ ] Segredo / Sigilo / AES
 
-[ ] Autenticação
+- [ ] Autenticação
  - [ ] Hash + Salt
