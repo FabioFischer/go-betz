@@ -1,8 +1,0 @@
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\bin\Debug\netcoreapp1.1\backend.deps.json
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\bin\Debug\netcoreapp1.1\backend.runtimeconfig.json
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\bin\Debug\netcoreapp1.1\backend.runtimeconfig.dev.json
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\bin\Debug\netcoreapp1.1\backend.dll
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\bin\Debug\netcoreapp1.1\backend.pdb
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\obj\Debug\netcoreapp1.1\backend.AssemblyInfo.cs
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\obj\Debug\netcoreapp1.1\backend.dll
-C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\backend\obj\Debug\netcoreapp1.1\backend.pdb
