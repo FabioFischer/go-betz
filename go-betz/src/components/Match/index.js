@@ -1,8 +1,8 @@
 import React from 'react';
 import './match.css';
 
-const Match = ({ title, teamA, teamB, format, date, victory }) => (
-  <div className={`match ${victory ? 'finished' : ''}`}>
+const Match = ({ onClick, title, teamA, teamB, format, date, victory }) => (
+  <div onClick={() => onClick ? onClick() : ''}  className={`match ${victory ? 'finished' : ''} ${onClick ? 'clickable' : ''}`}>
     <div className='match--header'>
       <div className='match--title'>{title}</div>
       <div className='match--date'>{date}</div>

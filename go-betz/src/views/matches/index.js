@@ -28,13 +28,21 @@ class Matches extends Component {
     });
   }
 
+  goToMatch(match) {
+    //navigate to match
+
+    this.props.history.push(
+      'match', match
+    );
+  }
+
   render() {
     return (
       <div className='matches page inner-page'>
         <div className='matches--content'>
           <h3>Partidas</h3>
           <div className='matches--wrapper'>
-            { this.state.matches.map((match, index) => <Match key={index} {...match} />) }
+            { this.state.matches.map((match, index) => <Match onClick={() => this.goToMatch(match)} key={index} {...match} />) }
           </div>
         </div>
       </div>
