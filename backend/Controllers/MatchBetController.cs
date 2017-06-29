@@ -4,8 +4,6 @@ namespace backend.Controllers
     {
         public DBController dbController;
 
-        public List<MatchBet> getMatchBets (Match match) {
-
-        }
+        
     }
 }
