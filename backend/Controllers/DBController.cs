@@ -22,11 +22,11 @@ namespace backend.Controllers
             
             string command = "SELECT ";
 
-            for (int i = 0; i < params.Lenght; i++) {
-                command += params[i] + (((i+1) != params.Lenght ? ", " : "");
+            for (int i = 0; i < columns.Lenght; i++) {
+                command += columns[i] + (((i+1) != columns.Lenght ? ", " : "");
             }
 
-            command += ((keys.Lenght > 0) ? " WHERE " + " FROM " + tableName : + " FROM " + tableName);
+            command += ((keys.Lenght > 0) ? (" WHERE " + " FROM " + tableName) : + " FROM " + tableName);
 
             for (int i = 0; i < keys.Lenght; i++) {
                 command += keys[i] + " = " + values[i];
