@@ -1,0 +1,11 @@
+.new-match {
+  font-size: 1em;
+}
+
+.new-match .field {
+  margin-bottom: 10px;
+}
+
+.new-match--actions {
+  display: flex;
+}
