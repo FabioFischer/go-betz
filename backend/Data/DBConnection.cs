@@ -7,9 +7,7 @@ namespace backend.Data
         private MySqlConnection connection = null;
         private static DBConnection _instance = null;
 
-        private string connString = "";
-        
-        connString = "Server=dbgobetz.mysql.uhserver.com; database=dbgobetz; " + "UID=gobetzadmin; password=@go-2017Betz";
+        private string connString = "Server=dbgobetz.mysql.uhserver.com; database=dbgobetz; " + "UID=gobetzadmin; password=@go-2017Betz";
 
         private DBConnection()
         {

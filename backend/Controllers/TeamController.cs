@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using backend.Models;
 
 namespace backend.Controllers
 {
@@ -12,55 +13,75 @@ namespace backend.Controllers
     {
         public DBController dbController;
 
-        public const string table = "t_team";
-        public const string[] columns = new string{"team_id", "team_name"};
+        public string table = "t_team";
+        public string[] columns = new string[2]{"team_id", "team_name"};
 
         [HttpGet]
-        public List<> Get() {
+        public List<Team> Get() 
+        {
             List<Team> teams = new List<Team>();
 
-            var reader = dbController.executeQuery(dbController.getSelectStr(this.table, this.columns)); 
-
-            while(reader.Read())
+            try 
             {
-                teams.add(new Team(
-                    id = reader.GetString(0),
-                    name = reader.GetString(1)
-                )); 
+                var reader = dbController.executeQuery(dbController.getSelectStr(this.table, this.columns)); 
+
+                while(reader.Read())
+                {
+                    teams.Add(
+                        new Team(){ id = reader.GetString(0), name = reader.GetString(1)}
+                    ); 
+                }
+                
+                dbController.closeConnection();
+
+            } catch (Exception e)
+            {
+
             }
-            
-            dbController.closeConnection();
 
             return teams;            
         }
 
         [HttpGet("{id}")]
-        public Team Get(int id) {
-            Team team = new Team();
-            string[] keys = new string{"team_id"};
-            string[] values = new string{id};
+        public Team Get(int id) 
+        {
+            Team team = null;
+            string[] keys = new string[1]{"team_id"};
+            string[] values = new string[1]{id.ToString()};
             
-            var reader = dbController.executeQuery(dbController.getSelectStr(this.table, this.columns, keys, values));
-
-            while(reader.Read())
+            try 
             {
-                team.id = reader.GetString(0);
-                team.name = reader.GetString(1).toString();
-            }
+                var reader = dbController.executeQuery(dbController.getSelectStr(this.table, this.columns, keys, values));
+                
+                while(reader.Read())
+                {
+                    team = new Team(){ id = reader.GetString(0), name = reader.GetString(1)};
+                }
 
-            dbController.closeConnection();
+                dbController.closeConnection();
+
+            } catch (Exception e)
+            {
+
+            }
 
             return team;
         }
         
-        // PUT api/values/5
         [HttpPut("{Team}")]
-        public void Put(Team team) {
-            string[] keys = new string{team.id, team.name};
+        public void Put(Team team) 
+        {
+            string[] keys = new string[2]{team.id.ToString(), team.name};
+            
+            try 
+            {
+                dbController.executeNonQuery(dbController.getInsertStr(this.table, this.columns, keys)); 
+                dbController.closeConnection();
 
-            var reader = dbController.executeQuery(dbController.getSelectStr(this.table, this.columns, keys)); 
+            } catch (Exception e)
+            {
 
-            dbController.closeConnection();
+            }
         }
     }
 }

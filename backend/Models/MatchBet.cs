@@ -7,6 +7,6 @@ namespace backend.Models
         public User user {get; set;}
         public Team team {get; set;}
         public float value {get; set;}
-        public String date {get; set;}
+        public string date {get; set;}
     }
 }
