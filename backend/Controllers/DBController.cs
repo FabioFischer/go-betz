@@ -1,10 +1,10 @@
 namespace backend.Controllers
 {
-    public abstract class DBController
+    public class DBController
     {
         public DBConnection = new DBConnection();
 
-        public SQLDataReader executeQuery(String query) {
+        public SQLDataReader executeQuery(string query) {
             var dbCon = DBConnection.Instance();
 
             if (dbCon.IsConnect())
@@ -15,12 +15,12 @@ namespace backend.Controllers
             }
         }
 
-        public string getSelectStr(String tableName, String[] params, String[] keys, String[] values) {
+        public string getSelectStr(string tableName, string[] params, string[] keys, string[] values) {
             if ((keys.Lenght != values.Lenght)) {
                 return "";
             }
             
-            String command = "SELECT ";
+            string command = "SELECT ";
 
             for (int i = 0; i < params.Lenght; i++) {
                 command += params[i] + (((i+1) != params.Lenght ? ", " : "");
@@ -36,15 +36,15 @@ namespace backend.Controllers
             return command;
         }
         
-        public string getInsertStr(String tableName, String[] params, String[] values) {
+        public string getInsertStr(string tableName, string[] params, string[] values) {
 
         }
         
-        public string getDeleteStr(String tableName, String[] params, String[] values) {
+        public string getDeleteStr(string tableName, string[] params, string[] values) {
 
         }
 
-        public string getUpdateStr(String tableName, String[] params, String[] values) {
+        public string getUpdateStr(string tableName, string[] params, string[] values) {
 
         }  
     }
