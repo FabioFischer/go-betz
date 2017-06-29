@@ -1,0 +1,7 @@
+.sign-in {
+  font-size: 1em;
+}
+
+.sign-in--action {
+   display: flex; 
+}

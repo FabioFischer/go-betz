@@ -1,0 +1,47 @@
+.match {
+  font-size: 1em;
+  padding: .5em;
+  margin-bottom: .5em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.match.finished {
+  opacity: .5;
+}
+
+.match.clickable {
+  cursor: pointer;
+}
+
+.match--header {
+  display: flex;
+  font-size: 1.5em;
+}
+
+.match--title {
+   flex: 1; 
+}
+
+.match--date {
+  font-size: .5em;
+  justify-content: flex-end;
+}
+
+.match--content {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.match--content div {
+  margin-right: .5em;
+}
+
+.match.finished .match--team.winner {
+  color: var(--green);
+}
+
+.match.finished .match--team.looser {
+  color: var(--red);
+}

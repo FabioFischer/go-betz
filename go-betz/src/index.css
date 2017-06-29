@@ -1,5 +1,37 @@
+* {
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h3,
+p {
+  margin: 0 0 1.5em;
+}
+
+:root {
+  --grey-5: #212121;
+  --grey-4: #383838;
+  --grey-3: #9e9e9e;
+  --grey-2: #d6d6d6;
+  --grey-1: #e8e8e8;
+  --green: #3fb763;
+  --blue: #008ee8;
+  --yellow: #ffdb1f;
+  --orange: #ff9514;
+  --red: #ff5454;
+  --white: #ffffff;
 }
