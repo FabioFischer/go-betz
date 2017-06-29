@@ -15,7 +15,7 @@ namespace backend.Controllers
             }
         }
 
-        public string getSelectStr(string tableName, string[] params, string[] keys, string[] values) {
+        public string getSelectStr(string tableName, string[] columns, string[] keys, string[] values) {
             if ((keys.Lenght != values.Lenght)) {
                 return "";
             }
@@ -26,7 +26,7 @@ namespace backend.Controllers
                 command += params[i] + (((i+1) != params.Lenght ? ", " : "");
             }
 
-            command += ((keys.Lenght > 0) ? "WHERE " : "");
+            command += ((keys.Lenght > 0) ? " WHERE " + " FROM " + tableName : + " FROM " + tableName);
 
             for (int i = 0; i < keys.Lenght; i++) {
                 command += keys[i] + " = " + values[i];
