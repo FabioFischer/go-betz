@@ -24,6 +24,7 @@
 }
 
 .bet--date {
+  font-size: .5em;
   justify-content: flex-end;
 }
 

@@ -1,24 +1,41 @@
-const state = {
-  isAuthenticated: false
+import _ from 'lodash';
+import BaseApi from './base';
+import repositories from './repositories';
+
+const signUp = async (url, attributes) => {
+  const fetchApi = BaseApi.create(url.trim());
+  let { status, data, errors } = await fetchApi.post('/auth', attributes);
+
+  if (_.has(errors, 'full_messages')) {
+    errors = errors.full_messages;
+  }
+
+  if (status === 'error') {
+    throw new Error(_(errors).uniq().join('\n'));
+  }
+
+  return _.assign({ currentUser: data }, _.mapValues(
+    _.mapKeys(repositories, _.rearg(_.camelCase, 1)),
+    repository => repository.create(fetchApi)
+  ));
 };
 
-const login = (email, password) => {
-  return new Promise(resolve => {
-    const services = {
-      currentUser: { isAuthenticated: true }
-    };
+const signIn = async (url, attributes) => {
+  const fetchApi = BaseApi.create(url.trim());
+  let { status, data, errors } = await fetchApi.post('/auth/sign_in', attributes);
 
-    resolve({ services })
-  });
-};
+  if (_.has(errors, 'full_messages')) {
+    errors = errors.full_messages;
+  }
 
+  if (status === 'error' || _.some(errors)) {
+    throw new Error(_(errors).uniq().join('\n'));
+  }
 
-const auth = {
-  isAuthenticated: () => state.isAuthenticated,
+  return _.assign({ currentUser: data }, _.mapValues(
+    _.mapKeys(repositories, _.rearg(_.camelCase, 1)),
+    repository => repository.create(fetchApi)
+  ));
+}
 
-  login,
-
-  register: () => state.isAuthenticated = true
-};
-
-export default auth;
+export default { signUp, signIn };

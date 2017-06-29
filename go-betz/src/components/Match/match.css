@@ -24,6 +24,7 @@
 }
 
 .match--date {
+  font-size: .5em;
   justify-content: flex-end;
 }
 
@@ -37,7 +38,7 @@
   margin-right: .5em;
 }
 
-.match.finished .match--team.victorious {
+.match.finished .match--team.winner {
   color: var(--green);
 }
 

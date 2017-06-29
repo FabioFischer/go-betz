@@ -10,7 +10,8 @@ import {
   Matches, NewMatch, MatchDetail,
   MyBets, NewBet,
   Signin, Signup,
-  AddFunds
+  AddFunds,
+  NewTeam
 } from './views';
 
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path='/my-bets' component={MyBets} />
           <Route path='/new-bet' component={NewBet} />
           <Route path='/add-funds' component={AddFunds} />
+          <Route path='/new-team' component={NewTeam} />
         </div>
       </Router>
     </div>

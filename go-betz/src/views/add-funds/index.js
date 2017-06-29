@@ -1,7 +1,7 @@
 import React from 'react';
 import './add-funds.css';
 
-import { Field, Button, Picker } from './../../components';
+import { Field, Button } from './../../components';
 
 class AddFunds extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class AddFunds extends React.Component {
       fone: ''
     };
   }
-  
+
   onFieldChange(field, event) {
     const obj = {};
 
@@ -28,10 +28,22 @@ class AddFunds extends React.Component {
   }
 
   goBack() {
-    this.props.history.goBack();
+    this.props.history.push(
+      'matches'
+    );
   }
 
   onSave() {
+    // const requestBody = {
+    //   value: this.state.value,
+    //   creditCard: this.state.creditCard,
+    //   expirationDate: this.state.expiration,
+    //   cvv: this.state.cvv,
+    //   name: this.state.name,
+    //   fone: this.state.fone,
+    //   userId: this.currentUser.id
+    // };
+
     //safe stuff
 
     this.props.history.push(

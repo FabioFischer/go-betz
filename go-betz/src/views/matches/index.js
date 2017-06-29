@@ -15,12 +15,13 @@ class Matches extends Component {
     //grab matches
     
     const matches = [
-      { title: 'PQR', teamA: 'Team A', teamB: 'Team B', format: 'BO3', date: '23/05/2017 18:00', victory: 'Team A'},
-      { title: 'MNO', teamA: 'Team A', teamB: 'Team B', format: 'BO3', date: '23/05/2017 18:00', victory: 'Team B'},
-      { title: 'JKL', teamA: 'Team A', teamB: 'Team B', format: 'BO3', date: '23/05/2017 18:00', victory: 'Team A'},
-      { title: 'GHI', teamA: 'Team A', teamB: 'Team B', format: 'BO3', date: '23/05/2017 18:00'},
-      { title: 'DEF', teamA: 'Team A', teamB: 'Team B', format: 'BO3', date: '23/05/2017 18:00', victory: 'Team A'},
-      { title: 'ABC', teamA: 'Team A', teamB: 'Team B', format: 'BO3', date: '23/05/2017 18:00'}
+      { description: 'Partida I', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { id: 1 } },
+      { description: 'Partida II', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { id: 2 } },
+      { description: 'Partida III', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { } },
+      { description: 'Partida IV', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { } },
+      { description: 'Partida VI', teamA: { id: 1, name: 'SK Gaming' }, teamB: { id: 3, name: 'Liquid' }, date: new Date().toLocaleString(), winner: { } },
+      { description: 'Partida VII', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { } },
+      { description: 'Partida VIII', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 7, name: 'Virtus Pro' }, date: new Date().toLocaleString(), winner: { } }
     ];
 
     this.setState({
@@ -29,10 +30,8 @@ class Matches extends Component {
   }
 
   goToMatch(match) {
-    //navigate to match
-
     this.props.history.push(
-      'match', match
+      'match-detail', match
     );
   }
 
@@ -42,7 +41,11 @@ class Matches extends Component {
         <div className='matches--content'>
           <h3>Partidas</h3>
           <div className='matches--wrapper'>
-            { this.state.matches.map((match, index) => <Match onClick={() => this.goToMatch(match)} key={index} {...match} />) }
+            {
+              this.state.matches.map((match, index) => (
+                <Match onClick={() => this.goToMatch(match)} key={index} {...match} />)
+              )
+            }
           </div>
         </div>
       </div>

@@ -11,15 +11,15 @@ class MyBets extends Component {
   }
 
   componentDidMount() {
-    //grab bets
-    
+    // const requestBody = {
+    //   userId: this.currentUser.id
+    // };
+
     const bets = [
-      { matchId: 1, title: 'Match ABC', pick: 'Team A', date: '23/05/2017 18:00', value: 2, status: 'winner' },
-      { matchId: 5, title: 'Match DEF', pick: 'Team B', date: '23/05/2017 18:00', value: 9, status: 'winner' },
-      { matchId: 12, title: 'Match ZYX', pick: 'Team A', date: '23/05/2017 18:00', value: 21, status: 'looser' },
-      { matchId: 3, title: 'Match SAD', pick: 'Team B', date: '23/05/2017 18:00', value: 3, status: 'winner' },
-      { matchId: 2, title: 'Match NOP', pick: 'Team A', date: '23/05/2017 18:00', value: 17, status: 'looser' },
-      { matchId: 9, title: 'Match SSS', pick: 'Team B', date: '23/05/2017 18:00', value: 5, status: 'winner' }
+      { match: {}, team: { id: 7, name: 'Fnatic' }, value: 13, date: new Date().toLocaleString() },
+      { match: {}, team: { id: 2, name: 'Virtus Pro' }, value: 9, date: new Date().toLocaleString() },
+      { match: {}, team: { id: 3, name: 'Liquid' }, value: 2, date: new Date().toLocaleString() },
+      { match: {}, team: { id: 9, name: 'SK Gaming' }, value: 21, date: new Date().toLocaleString() },
     ];
 
     this.setState({
@@ -28,12 +28,14 @@ class MyBets extends Component {
   }
 
   goToMatch(bet) {
-    //navigate to match
-    
     const { matchId } = bet;
 
+    const params = {
+      match: { id: matchId }
+    };
+
     this.props.history.push(
-      'match', matchId
+      'match', params
     );
   }
 
@@ -41,9 +43,9 @@ class MyBets extends Component {
     return (
       <div className='bets page inner-page'>
         <div className='bets--content'>
-          <h3>Partidas</h3>
+          <h3>Minhas apostas</h3>
           <div className='bets--wrapper'>
-            { this.state.bets.map((bet, index) => <Bet onClick={() => this.goToMatch(bet)} key={index} {...bet} />) }
+            {this.state.bets.map((bet, index) => <Bet onClick={() => this.goToMatch(bet)} key={index} {...bet} />)}
           </div>
         </div>
       </div>

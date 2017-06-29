@@ -1,0 +1,8 @@
+/Users/mfklauberg/projects/school/go-betz/backend/bin/Debug/netcoreapp1.1/backend.deps.json
+/Users/mfklauberg/projects/school/go-betz/backend/bin/Debug/netcoreapp1.1/backend.runtimeconfig.json
+/Users/mfklauberg/projects/school/go-betz/backend/bin/Debug/netcoreapp1.1/backend.runtimeconfig.dev.json
+/Users/mfklauberg/projects/school/go-betz/backend/bin/Debug/netcoreapp1.1/backend.dll
+/Users/mfklauberg/projects/school/go-betz/backend/bin/Debug/netcoreapp1.1/backend.pdb
+/Users/mfklauberg/projects/school/go-betz/backend/obj/Debug/netcoreapp1.1/backend.AssemblyInfo.cs
+/Users/mfklauberg/projects/school/go-betz/backend/obj/Debug/netcoreapp1.1/backend.dll
+/Users/mfklauberg/projects/school/go-betz/backend/obj/Debug/netcoreapp1.1/backend.pdb
