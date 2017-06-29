@@ -1,9 +1,9 @@
 import React from 'react';
 import './add-funds.css';
 
-import { Field, Button } from './../../components';
+import { Field, Button, ComponentWrapper } from './../../components';
 
-class AddFunds extends React.Component {
+class AddFunds extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -28,9 +28,7 @@ class AddFunds extends React.Component {
   }
 
   goBack() {
-    this.props.history.push(
-      'matches'
-    );
+    this.goTo('matches');
   }
 
   onSave() {
@@ -46,9 +44,7 @@ class AddFunds extends React.Component {
 
     //safe stuff
 
-    this.props.history.push(
-      'my-bets'
-    );
+    this.goTo('my-bets');
   }
 
   render() {

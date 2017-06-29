@@ -1,9 +1,9 @@
 import React from 'react';
 import './new-match.css';
 
-import { Field, Button, Picker } from './../../components';
+import { Field, Button, Picker, ComponentWrapper } from './../../components';
 
-class NewMatch extends React.Component {
+class NewMatch extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -25,18 +25,16 @@ class NewMatch extends React.Component {
   }
 
   goBack() {
-    this.props.history.push(
-      'matches'
-    );
+    this.goTo('matches');
   }
 
-  onSave() {
+  async onSave() {
     //safe stuff
 
     this.goBack();
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     //grap teams
 
     const teams = [

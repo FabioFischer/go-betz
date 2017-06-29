@@ -3,7 +3,10 @@ import './App.css';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { PrivateRoute } from './components';
+import {
+  AuthenticatedRoute,
+  AdministrativeRoute
+} from './components';
 
 import {
   About,
@@ -24,12 +27,12 @@ const App = () => (
           <Route path='/sign-up' component={Signup} />
           <Route path='/sign-in' component={Signin} />
           <Route path='/matches' component={Matches} />
-          <Route path='/new-match' component={NewMatch} />
+          <AdministrativeRoute path='/new-match' component={NewMatch} />
           <Route path='/match-detail' component={MatchDetail} />
-          <Route path='/my-bets' component={MyBets} />
-          <Route path='/new-bet' component={NewBet} />
-          <Route path='/add-funds' component={AddFunds} />
-          <Route path='/new-team' component={NewTeam} />
+          <AuthenticatedRoute path='/my-bets' component={MyBets} />
+          <AuthenticatedRoute path='/new-bet' component={NewBet} />
+          <AuthenticatedRoute path='/add-funds' component={AddFunds} />
+          <AdministrativeRoute path='/new-team' component={NewTeam} />
         </div>
       </Router>
     </div>

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Bet } from './../../components';
+import React from 'react';
+import { Bet, ComponentWrapper } from './../../components';
 
-class MyBets extends Component {
+class MyBets extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -10,11 +10,7 @@ class MyBets extends Component {
     };
   }
 
-  componentDidMount() {
-    // const requestBody = {
-    //   userId: this.currentUser.id
-    // };
-
+  async componentDidMount() {
     const bets = [
       { match: {}, team: { id: 7, name: 'Fnatic' }, value: 13, date: new Date().toLocaleString() },
       { match: {}, team: { id: 2, name: 'Virtus Pro' }, value: 9, date: new Date().toLocaleString() },
@@ -28,15 +24,10 @@ class MyBets extends Component {
   }
 
   goToMatch(bet) {
-    const { matchId } = bet;
-
-    const params = {
-      match: { id: matchId }
-    };
-
-    this.props.history.push(
-      'match', params
-    );
+    this.goTo('match', {
+      match: { id: 0 },
+      bet
+    });
   }
 
   render() {

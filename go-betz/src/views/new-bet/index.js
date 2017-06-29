@@ -1,9 +1,9 @@
 import React from 'react';
 // import './new-match.css';
 
-import { Field, Button, Picker } from './../../components';
+import { Field, Button, Picker, ComponentWrapper } from './../../components';
 
-class NewBet extends React.Component {
+class NewBet extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -37,15 +37,13 @@ class NewBet extends React.Component {
   }
 
   goBack() {
-    this.props.history.goBack();
+    this.goTo('matches')
   }
 
-  onSave() {
+  async onSave() {
     //safe stuff
 
-    this.props.history.push(
-      'my-bets'
-    );
+   this.goTo('my-bets'); 
   }
 
   render() {

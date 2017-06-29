@@ -2,11 +2,11 @@ import React from 'react';
 
 import './sign-in.css';
 
-import { Field, Button } from './../../components';
+import { Field, Button, ComponentWrapper } from './../../components';
 
-import { Auth } from './../../services';
+import Auth from './../../services/auth';
 
-class Signin extends React.Component {
+class Signin extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -24,18 +24,19 @@ class Signin extends React.Component {
     this.setState(obj);
   }
 
-  onLogin() {
-    Auth.login();
+  async onLogin() {
+    try {
+      // const services = await Auth.signIn('', { username: this.state.username, password: this.state.password });
+      const services = { };
 
-    this.props.history.push(
-      'matches'
-    );
+      this.goTo('matches', { services });
+    } catch (err) {
+      alert('Falha ao logar');
+    }
   }
 
   onSignUp() {
-    this.props.history.push(
-      'sign-up'
-    );
+    this.goTo('sign-up');
   }
 
   render() {

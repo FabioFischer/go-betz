@@ -1,9 +1,9 @@
 import React from 'react';
 import './sign-up.css';
 
-import { Field, Button } from './../../components';
+import { Field, Button, ComponentWrapper } from './../../components';
 
-class Signup extends React.Component {
+class Signup extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -12,7 +12,7 @@ class Signup extends React.Component {
       password: ''
     };
   }
-  
+
   onFieldChange(field, event) {
     const obj = {};
 
@@ -24,17 +24,15 @@ class Signup extends React.Component {
   onRegister() {
     //registration stuff
 
-    this.props.history.push(
-      'matches'
-    );
+    const services = {}
+
+    this.goTo('matches', { services })
   }
 
   goBack() {
-    this.props.history.push(
-      'sign-in'
-    );
+    this.goTo('sign-in');
   };
-  
+
   render() {
     return (
       <div className='sign-up page upner--page'>
@@ -46,8 +44,8 @@ class Signup extends React.Component {
             <Field type='password' value={this.state.password} onChange={e => this.onFieldChange('password', e)} placeholder='Senha' name='password' />
           </div>
           <div className='sign-up--action'>
-            <Button text='Cadastrar' onClick={() => this.onRegister()}/>
-            <Button text='Voltar' onClick={() => this.goBack()}/>
+            <Button text='Cadastrar' onClick={() => this.onRegister()} />
+            <Button text='Voltar' onClick={() => this.goBack()} />
           </div>
         </div>
       </div>

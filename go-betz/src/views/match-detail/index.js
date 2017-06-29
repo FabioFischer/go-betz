@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { Match, Button } from './../../components';
+import { Match, Button, ComponentWrapper } from './../../components';
 
-class MyBets extends Component {
+class MyBets extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -11,7 +11,7 @@ class MyBets extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     //grab match
 
     const match = {
@@ -27,15 +27,13 @@ class MyBets extends Component {
   }
 
   onNewBet() {
-    this.props.history.push(
-      'new-bet', { match: this.state.match }
-    );
+    this.goTo('new-bet', {
+      match: { }
+    });
   }
 
   goBack() {
-    this.props.history.push(
-      'matches'
-    );
+    this.goTo('matches');
   }
 
   render() {

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { Match } from './../../components';
+import { Match, ComponentWrapper } from './../../components';
 
-class Matches extends Component {
+class Matches extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -11,18 +11,8 @@ class Matches extends Component {
     };
   }
 
-  componentDidMount() {
-    //grab matches
-    
-    const matches = [
-      { description: 'Partida I', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { id: 1 } },
-      { description: 'Partida II', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { id: 2 } },
-      { description: 'Partida III', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { } },
-      { description: 'Partida IV', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { } },
-      { description: 'Partida VI', teamA: { id: 1, name: 'SK Gaming' }, teamB: { id: 3, name: 'Liquid' }, date: new Date().toLocaleString(), winner: { } },
-      { description: 'Partida VII', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 2, name: 'SK Gaming' }, date: new Date().toLocaleString(), winner: { } },
-      { description: 'Partida VIII', teamA: { id: 1, name: 'Fnatic' }, teamB: { id: 7, name: 'Virtus Pro' }, date: new Date().toLocaleString(), winner: { } }
-    ];
+  async componentDidMount() {
+    const matches = await this.services.matches.all();
 
     this.setState({
       matches
@@ -30,9 +20,7 @@ class Matches extends Component {
   }
 
   goToMatch(match) {
-    this.props.history.push(
-      'match-detail', match
-    );
+    this.goTo('match-detail', { match });
   }
 
   render() {
