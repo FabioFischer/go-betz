@@ -8,13 +8,14 @@ using backend.Models;
 
 namespace backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/team")]
     public class TeamController : Controller
     {
-        public DBController dbController;
+        public DBController dbController = new DBController();
 
         public string table = "t_team";
         public string[] columns = new string[2]{"team_id", "team_name"};
+        public string[] columnsNoID = new string[1]{"team_name"};
 
         [HttpGet]
         public List<Team> Get() 
@@ -68,14 +69,14 @@ namespace backend.Controllers
             return team;
         }
         
-        [HttpPut("{Team}")]
-        public void Put(Team team) 
+        [HttpPost("{name}")]
+        public void Post(string name) 
         {
-            string[] keys = new string[2]{team.id.ToString(), team.name};
+            string[] keys = new string[1]{name};
             
             try 
             {
-                dbController.executeNonQuery(dbController.getInsertStr(this.table, this.columns, keys)); 
+                dbController.executeNonQuery(dbController.getInsertStr(this.table, this.columnsNoID, keys)); 
                 dbController.closeConnection();
 
             } catch (Exception e)
