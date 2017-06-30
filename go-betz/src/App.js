@@ -14,7 +14,8 @@ import {
   MyBets, NewBet,
   Signin, Signup,
   AddFunds,
-  NewTeam
+  NewTeam,
+  Home
 } from './views';
 
 
@@ -23,6 +24,7 @@ const App = () => (
     <div className='app--content'>
       <Router>
         <div>
+          <Route component={Home}/>
           <Route path="/about" component={About} />
           <Route path='/sign-up' component={Signup} />
           <Route path='/sign-in' component={Signin} />

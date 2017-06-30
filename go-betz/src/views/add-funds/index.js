@@ -31,20 +31,26 @@ class AddFunds extends ComponentWrapper {
     this.goTo('matches');
   }
 
-  onSave() {
-    // const requestBody = {
-    //   value: this.state.value,
-    //   creditCard: this.state.creditCard,
-    //   expirationDate: this.state.expiration,
-    //   cvv: this.state.cvv,
-    //   name: this.state.name,
-    //   fone: this.state.fone,
-    //   userId: this.currentUser.id
-    // };
+  async onSave() {
+    try {
+      const model = {
+      value: this.state.value,
+      creditCard: this.state.creditCard,
+      expirationDate: this.state.expiration,
+      cvv: this.state.cvv,
+      name: this.state.name,
+      fone: this.state.fone,
+      userId: this.services.currentUser.id,
+      date: new Date().toLocaleString()
+    };
 
-    //safe stuff
+      await this.services.fundsRepository.save(model);
 
-    this.goTo('my-bets');
+      this.goTo('my-bets');
+    } catch (err) {
+      alert('Erro ao adicionar créditos!');
+      console.error(err);
+    }
   }
 
   render() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 import { Match, Button, ComponentWrapper } from './../../components';
 
@@ -6,30 +7,18 @@ class MyBets extends ComponentWrapper {
   constructor(props) {
     super(props);
 
-    this.state = {
-      match: { },
-    };
+    this.state = { match: {} };
   }
 
   async componentDidMount() {
-    //grab match
+    const matchId = _.get(this.props.location, 'state.match.id');
+    const match = await this.services.matchesRepository.find(matchId);
 
-    const match = {
-      id: 1,
-      teamA: { name: 'Fnatic', id: 1 },
-      teamB: { name: 'SK Gaming', id: 2 },
-      description: 'Match XYZ'
-    };
-
-    this.setState({
-      match
-    });
+    this.setState({ match });
   }
 
   onNewBet() {
-    this.goTo('new-bet', {
-      match: { }
-    });
+    this.goTo('new-bet', { match: this.props.location.state.match });
   }
 
   goBack() {

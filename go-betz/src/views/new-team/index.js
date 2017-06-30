@@ -1,9 +1,9 @@
 import React from 'react';
 import './new-team.css';
 
-import { Field, Button } from './../../components';
+import { Field, Button, ComponentWrapper } from './../../components';
 
-class NewTeam extends React.Component {
+class NewTeam extends ComponentWrapper {
   constructor(props) {
     super(props);
 
@@ -21,13 +21,21 @@ class NewTeam extends React.Component {
   }
 
   goBack() {
-    this.props.history.goBack();
+    this.goTo('matches');
   }
 
-  onSave() {
-    //safe stuff
+  async onSave() {
+    const model = {
+      name: this.state.name
+    };
 
-    this.goBack();
+    try {
+      await this.services.teamsRepository.save(model);
+
+      this.goBack();
+    } catch (err) {
+      alert('Erro ao salvar time');
+    }
   }
 
   render() {

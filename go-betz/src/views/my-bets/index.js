@@ -11,21 +11,23 @@ class MyBets extends ComponentWrapper {
   }
 
   async componentDidMount() {
-    const bets = [
-      { match: {}, team: { id: 7, name: 'Fnatic' }, value: 13, date: new Date().toLocaleString() },
-      { match: {}, team: { id: 2, name: 'Virtus Pro' }, value: 9, date: new Date().toLocaleString() },
-      { match: {}, team: { id: 3, name: 'Liquid' }, value: 2, date: new Date().toLocaleString() },
-      { match: {}, team: { id: 9, name: 'SK Gaming' }, value: 21, date: new Date().toLocaleString() },
-    ];
+    try {
+      let bets = await this.services.betsRepository.all({
+        userId: this.services.currentUser.id
+      });
 
-    this.setState({
-      bets
-    });
+      this.setState({
+        bets
+      });
+    } catch (err) {
+      alert('Erro ao tentar obter suas apostas');
+    }
+
   }
 
   goToMatch(bet) {
     this.goTo('match', {
-      match: { id: 0 },
+      match: { id: bet.match_id },
       bet
     });
   }

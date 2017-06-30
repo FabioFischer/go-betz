@@ -3,6 +3,8 @@ import './sign-up.css';
 
 import { Field, Button, ComponentWrapper } from './../../components';
 
+import Auth from './../../services/auth';
+
 class Signup extends ComponentWrapper {
   constructor(props) {
     super(props);
@@ -21,12 +23,18 @@ class Signup extends ComponentWrapper {
     this.setState(obj);
   }
 
-  onRegister() {
-    //registration stuff
+  async onRegister() {
+    try {
+      const services = await Auth.signIn('', {
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password
+      });
 
-    const services = {}
-
-    this.goTo('matches', { services })
+      this.goTo('matches', { services });
+    } catch (err) {
+      alert('Falha ao logar');
+    }
   }
 
   goBack() {

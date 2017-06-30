@@ -5,12 +5,12 @@ import _ from 'lodash';
 
 const AuthenticatedRoute = ({ component: Component, ...rest }) => {
   const renderMethod = props => {
-    const currentUser = _.get(props.location, 'state.services.currentUser');
+    // const currentUser = _.get(props.location, 'state.services.currentUser');
     
-    if (!currentUser) {
-      alert('Você não possui permissão para visualizar essa página (´•ᴥ•`)');
-      return (<Redirect to={{ pathname: 'sign-in', state: { from: props.location } }} />);
-    }
+    // if (!currentUser) {
+    //   alert('Você não possui permissão para visualizar essa página (´•ᴥ•`)');
+    //   return (<Redirect to={{ pathname: 'sign-in', state: { from: props.location } }} />);
+    // }
 
     return (<Component {...props} />)
   };

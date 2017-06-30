@@ -14,6 +14,8 @@ import AddFunds from './add-funds';
 
 import NewTeam from './new-team';
 
+import Home from './home';
+
 export {
   About,
   Signin,
@@ -24,5 +26,6 @@ export {
   MyBets,
   NewBet,
   AddFunds,
-  NewTeam
+  NewTeam,
+  Home
 }

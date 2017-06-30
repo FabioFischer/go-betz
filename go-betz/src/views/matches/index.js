@@ -12,11 +12,16 @@ class Matches extends ComponentWrapper {
   }
 
   async componentDidMount() {
-    const matches = await this.services.matches.all();
+    try {
+      const matches = await this.services.matchesRepository.all();
+      this.setState({
+        matches
+      });
 
-    this.setState({
-      matches
-    });
+    } catch (err) {
+      alert('Erro ao tentar obter partidas');
+    }
+
   }
 
   goToMatch(match) {

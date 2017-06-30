@@ -26,8 +26,7 @@ class Signin extends ComponentWrapper {
 
   async onLogin() {
     try {
-      // const services = await Auth.signIn('', { username: this.state.username, password: this.state.password });
-      const services = { };
+      const services = await Auth.signIn('', { username: this.state.username, password: this.state.password });
 
       this.goTo('matches', { services });
     } catch (err) {

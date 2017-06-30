@@ -8,7 +8,7 @@ class NewMatch extends ComponentWrapper {
     super(props);
 
     this.state = {
-      title: '',
+      description: '',
       teamA: '',
       teamB: '',
       date: '',
@@ -29,23 +29,33 @@ class NewMatch extends ComponentWrapper {
   }
 
   async onSave() {
-    //safe stuff
+    const model = {
+      teamA: this.state.teamA,
+      teamB: this.state.teamB,
+      description: this.state.description,
+      date: this.state.date
+    };
 
-    this.goBack();
+    try {
+      await this.services.matchesRepository.save(model);
+      this.goBack();
+    } catch (err) {
+      alert('Erro ao salvar partida');
+    }
   }
 
   async componentDidMount() {
-    //grap teams
+    const teams = await this.teamsRepository.all();
 
-    const teams = [
-      { id: 9, name: 'Fnatic' },
-      { id: 6, name: 'TSM' },
-      { id: 5, name: 'SK Gaming' },
-      { id: 1, name: 'Virtus Pro' },
-      { id: 2, name: 'Liquid' },
-      { id: 3, name: 'NaVi' },
-      { id: 4, name: 'Astralis' },
-    ];
+    // const teams = [
+    //   { id: 9, name: 'Fnatic' },
+    //   { id: 6, name: 'TSM' },
+    //   { id: 5, name: 'SK Gaming' },
+    //   { id: 1, name: 'Virtus Pro' },
+    //   { id: 2, name: 'Liquid' },
+    //   { id: 3, name: 'NaVi' },
+    //   { id: 4, name: 'Astralis' },
+    // ];
 
     this.setState({
       teams
@@ -58,7 +68,7 @@ class NewMatch extends ComponentWrapper {
         <div className='new-match--content'>
           <h3>Nova partida</h3>
           <div className='new-match--form'>
-            <Field type='text' value={this.state.title} onChange={e => this.onFieldChange('title', e)} placeholder='Título' name='title' />
+            <Field type='text' value={this.state.description} onChange={e => this.onFieldChange('description', e)} placeholder='Título' name='description' />
             <Picker values={this.state.teams} value={this.state.teamA} onChange={e => this.onFieldChange('teamA', e)} placeholder='Time A' name='teamA' />
             <Picker values={this.state.teams} value={this.state.teamB} onChange={e => this.onFieldChange('teamB', e)} placeholder='Time B' name='teamB' />
             <Field type='datetime-local' value={this.state.date} onChange={e => this.onFieldChange('date', e)} placeholder='Data' name='date' />

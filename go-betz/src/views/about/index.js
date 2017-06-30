@@ -12,10 +12,10 @@ const Content = () => (
       Este site foi desenvolvido como trabalho pelos alunos <Fabio /> e <Matheus /> para a matéria de Desenvolvimento de Sistemas Seguros, ministrada pelo professor Luz Angelo Heinzen, no curso de Bacharelado em Ciências da Computação, na Fundação Universidade Regional de Blumenau - FURB.
     </p>
     <p>
-      O site tem como objetivo permitir a seus usuários realizarem apostas em partidas de campeonatos do jogo <i><CounterStrike /></i> utilizando de itens presentes em seus inventários na <Steam />, realizando trocas com bots do sistema, que os guardam até o usuário resgata-los.
+      O site tem como objetivo permitir a seus usuários realizarem apostas em partidas de campeonatos do jogo <i><CounterStrike /></i> utilizando de créditos, que o usuário pode comprar com dinheiro real.
     </p>
     <p>
-      Ao apostar em um time vencedor, o usuário receberá o valor de seus itens apostados, acrescentando o seu percentual sobre o valor total apostado, enquanto ao apostar em um time perdedor, o usuário perde todos os seus itens.
+      Ao apostar em um time vencedor, o usuário receberá o valor apostado, acrescentando o seu percentual sobre o valor total apostado, enquanto ao apostar em um time perdedor, o usuário perde todos os créditos apostados.
     </p>
     <p>
       Em todas as partidas em que apostas são realizadas, o sistema fica com 10% do valor total apostado.
