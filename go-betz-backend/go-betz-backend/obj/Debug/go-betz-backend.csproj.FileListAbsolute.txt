@@ -1,0 +1,167 @@
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\ApplicationInsights.config
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\csc.exe
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\csc.exe.config
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\csc.rsp
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\csi.exe
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\csi.rsp
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\System.AppContext.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\System.Collections.Immutable.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\System.Diagnostics.StackTrace.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\System.IO.FileSystem.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\System.IO.FileSystem.Primitives.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\vbc.exe
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\vbc.exe.config
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\vbc.rsp
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\VBCSCompiler.exe
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\roslyn\VBCSCompiler.exe.config
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\go-betz-backend.dll.config
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\go-betz-backend.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\go-betz-backend.pdb
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Antlr3.Runtime.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.Web.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.WindowsServer.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.ApplicationInsights.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.Web.Infrastructure.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Newtonsoft.Json.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Net.Http.Formatting.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Helpers.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Http.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Http.WebHost.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Mvc.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Optimization.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Razor.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Deployment.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Razor.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\WebGrease.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Newtonsoft.Json.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Net.Http.Formatting.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Helpers.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Http.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Http.WebHost.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Mvc.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Optimization.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.Razor.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Deployment.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Razor.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Antlr3.Runtime.pdb
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.ApplicationInsights.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.WindowsServer.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\Microsoft.AI.Web.xml
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Net.Http.Formatting.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Helpers.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Http.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Http.WebHost.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Mvc.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Optimization.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Razor.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.WebPages.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\obj\Debug\go-betz-backend.csprojResolveAssemblyReference.cache
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\obj\Debug\go-betz-backend.dll
+c:\users\fabio.fischer\documents\visual studio 2017\Projects\go-betz-backend\go-betz-backend\obj\Debug\go-betz-backend.pdb
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\ApplicationInsights.config
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\csc.exe
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\csc.exe.config
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\csc.rsp
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\csi.exe
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\csi.rsp
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\System.AppContext.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\vbc.exe
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\vbc.exe.config
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\vbc.rsp
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\VBCSCompiler.exe
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\go-betz-backend.dll.config
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\go-betz-backend.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\go-betz-backend.pdb
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Antlr3.Runtime.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.Web.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.ApplicationInsights.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\MySql.Data.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Newtonsoft.Json.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Net.Http.Formatting.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Helpers.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Http.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Http.WebHost.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Mvc.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Optimization.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Razor.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Deployment.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Razor.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\WebGrease.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Newtonsoft.Json.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Net.Http.Formatting.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Helpers.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Http.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Http.WebHost.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Mvc.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Optimization.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.Razor.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Deployment.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\System.Web.WebPages.Razor.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Antlr3.Runtime.pdb
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.ApplicationInsights.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\Microsoft.AI.Web.xml
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Net.Http.Formatting.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Http.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Http.WebHost.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Optimization.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\obj\Debug\go-betz-backend.csprojResolveAssemblyReference.cache
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\obj\Debug\go-betz-backend.dll
+C:\Users\fabio.fischer\Documents\GitHub Projects\go-betz\go-betz-backend\go-betz-backend\obj\Debug\go-betz-backend.pdb

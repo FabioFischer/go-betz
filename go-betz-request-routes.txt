@@ -1,0 +1,17 @@
+'login - POST /auth/sign_in
+login - POST /auth { email, username, password }
+
+match - GET /matches
+match - GET /matches/{id}
+match - POST /matches - { desc, teama_id, teamb_id, date }
+
+team - GET /team
+team - GET /team/{id}
+team - POST /team - { name }
+
+bet - GET /bets
+bet - GET /bets - { user_id }
+bet - POST /bets - { date, team_id, match_id }
+
+funds - GET /fund { user_id }
+funds - POST /fund { user_id, value, creditcard, expiration, cvv, name, address, fone }
