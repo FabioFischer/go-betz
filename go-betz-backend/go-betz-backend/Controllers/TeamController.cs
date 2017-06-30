@@ -19,6 +19,20 @@ namespace go_betz_backend.Controllers
         public string[] columns = new string[2]{"team_id", "team_name"};
         public string[] columnsNoID = new string[1]{"team_name"};
 
+        public Team GetTeamByID(int id)
+        {
+            Team team = null;
+
+            DataTable data = dbController.ExecuteQuery(dbController.GetSelectStr(this.table, this.columns, new string[1] { "team_id" }, new string[1] { id.ToString() }));
+
+            foreach (DataRow row in data.Rows)
+            {
+                team = new Team() { id = row.Field<int>(0), name = row.Field<string>(1) };
+            }
+
+            return team;
+        }
+
         [HttpGet]
         public List<Team> Get() 
         {
