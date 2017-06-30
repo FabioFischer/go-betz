@@ -180,9 +180,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\DBController.cs" />
+    <Compile Include="Controllers\dbController.cs" />
     <Compile Include="Controllers\FundController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatchBetController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
@@ -198,7 +197,7 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Services\DBConnection.cs" />
+    <Compile Include="Services\dbConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

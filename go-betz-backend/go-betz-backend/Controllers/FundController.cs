@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using go_betz_backend.Models;
+using Newtonsoft.Json.Linq;
 
 namespace go_betz_backend.Controllers
 {
@@ -13,14 +14,22 @@ namespace go_betz_backend.Controllers
     {
         public dbController dbController = new dbController();
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public void Get(int id) 
         {
         }   
 
-        [HttpPost("{user_id, value, creditcard, expiration, cvv, name, address, fone}")]
-        public void Post(string user_id, float value, string creditcard, string expiration, string cvv, string name, string address, string fone) 
+        [HttpPost]
+        public void Post([FromBody]JObject data) 
         {
+            string userID = data["user_id"].ToObject<string>();
+            float value = data["value"].ToObject<float>();
+            string creditCard = data["creditcard"].ToObject<string>();
+            string expiration = data["expiration"].ToObject<string>();
+            string cvv = data["cvv"].ToObject<string>();
+            string name = data["name"].ToObject<string>();
+            string address = data["address"].ToObject<string>();
+            string fone = data["fone"].ToObject<string>();
         }  
     }
 }

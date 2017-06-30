@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using go_betz_backend.Models;
+using Newtonsoft.Json.Linq;
 
 namespace go_betz_backend.Controllers
 {
@@ -21,7 +19,7 @@ namespace go_betz_backend.Controllers
             return bets;
         }   
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public MatchBet Get(int id) 
         {
             MatchBet bet = null;
@@ -29,9 +27,13 @@ namespace go_betz_backend.Controllers
             return bet;
         }    
 
-        [HttpPost("{date, team_id, match_id}")]
-        public MatchBet Get(int id, int team_id, int match_id) 
+        [HttpPost]
+        public MatchBet Post([FromBody]JObject data) 
         {
+            int id = data["id"].ToObject<int>();
+            int teamID = data["team_id"].ToObject<int>();
+            int matchID = data["match_id"].ToObject<int>();
+            
             MatchBet bet = null;
 
             return bet;

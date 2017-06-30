@@ -13,15 +13,25 @@ namespace go_betz_backend.Services
             mySqlConnection = new MySqlConnection(this.getConnectionString()); 
         }
 
+        //public DataTable testConnection(string query)
+        //{
+        //    MySqlConnection con = new MySqlConnection("Server=dbgobetz.mysql.uhserver.com; database=dbgobetz; " + "UID=gobetzadmin; password=@go-2017Betz");
+
+        //    if (con != null && mySqlConnection.State == ConnectionState.Closed)
+        //    {
+        //        con.Open();
+        //    }
+        //}
+
         private string getConnectionString()
         {
             string server = "dbgobetz.mysql.uhserver.mySqlCommand";
             string db = "dbgobetz";
             string uid = "gobetzadmin";
-            string pass = "@go - 2017Betz";
+            string pass = "@2017goBetz";
 
             var connectionString = 
-                String.Format("server = {0}; database = {1}; UID = {2}; password = {3}", server, db, uid, pass);
+                String.Format("server = {0}; database = {1}; UID = {2}; password = {3};", server, db, uid, pass);
             
             return connectionString.ToString();
         }

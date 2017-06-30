@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using go_betz_backend.Models;
+using Newtonsoft.Json.Linq;
 
 namespace go_betz_backend.Controllers
 {
@@ -21,7 +22,7 @@ namespace go_betz_backend.Controllers
             return matches;
         }   
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public Match Get(int id) 
         {
             Match match = null;
@@ -29,9 +30,13 @@ namespace go_betz_backend.Controllers
             return match;
         }   
         
-        [HttpPost("{desc, teama_id, teamb_id, date}")]
-        public void Post(string desc, string teama_id, string teamb_id, string date) {
-
+        [HttpPost]
+        public void Post([FromBody]JObject data)
+        {
+            string desc = data["desc"].ToObject<string>();
+            int teamAID = data["teama_id"].ToObject<int>();
+            int teamBID = data["teamb_id"].ToObject<int>();
+            string date = data["date"].ToObject<string>();
         }
     }
 }

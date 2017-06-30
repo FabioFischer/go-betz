@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using go_betz_backend.Models;
+using Newtonsoft.Json.Linq;
 
 namespace go_betz_backend.Controllers
 {
@@ -13,12 +14,16 @@ namespace go_betz_backend.Controllers
     {
         public dbController dbController = new dbController();
         
-        [HttpPost("{ email, username, password }")] 
-        public void Post(string email, string username, string password) 
+        [HttpPost] 
+        public void Post([FromBody]JObject data) 
         {
+            string email = data["email"].ToObject<string>();
+            string username = data["username"].ToObject<string>();
+            string password = data["password"].ToObject<string>();
         }
         
-        [HttpPost("sign_in")]
+        [HttpPost]
+        [Route("api/auth/sign_in")]
         public void Post() 
         {
         }

@@ -28,6 +28,9 @@ namespace go_betz_backend.Controllers
 
         public string GetSelectStr(string tableName, string[] columns, string[] keys = null, string[] values = null) 
         {
+            keys = (keys == null) ? new string[] { } : keys;
+            values = (values == null) ? new string[] { } : values;
+
             if (keys.Length != values.Length) {
                 return "";
             }

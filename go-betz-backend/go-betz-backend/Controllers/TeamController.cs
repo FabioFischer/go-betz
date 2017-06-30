@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using go_betz_backend.Models;
 using System.Data;
+using Newtonsoft.Json.Linq;
 
 namespace go_betz_backend.Controllers
 {
@@ -51,9 +52,9 @@ namespace go_betz_backend.Controllers
         }
         
         [HttpPost]
-        public void Post([FromBody]string name) 
+        public void Post([FromBody]JObject data) 
         {            
-            dbController.ExecuteNonQuery(dbController.GetInsertStr(this.table, this.columnsNoID, new string[1] { name })); 
+            dbController.ExecuteNonQuery(dbController.GetInsertStr(this.table, this.columnsNoID, new string[1] { data["name"].ToObject<string>() })); 
         }
     }
 }
