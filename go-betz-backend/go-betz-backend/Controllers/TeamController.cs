@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using go_betz_backend.Models;
+using System.Data;
 
 namespace go_betz_backend.Controllers
 {
@@ -21,68 +22,38 @@ namespace go_betz_backend.Controllers
         public List<Team> Get() 
         {
             List<Team> teams = new List<Team>();
+            
+            DataTable data = dbController.ExecuteQuery(dbController.GetSelectStr(this.table, this.columns)); 
 
-            try 
+            foreach(DataRow row in data.Rows)
             {
-                var reader = dbController.executeQuery(dbController.getSelectStr(this.table, this.columns)); 
-
-                while(reader.Read())
-                {
-                    teams.Add(
-                        new Team(){ id = reader.GetString(0), name = reader.GetString(1)}
-                    ); 
-                }
-                
-                dbController.closeConnection();
-
-            } catch (Exception e)
-            {
-
-            }
+                teams.Add(
+                    new Team() { id = row.Field<int>(0), name = row.Field<string>(1) }
+                );
+            }                
 
             return teams;            
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public Team Get(int id) 
         {
             Team team = null;
-            string[] keys = new string[1]{"team_id"};
-            string[] values = new string[1]{id.ToString()};
             
-            try 
+            DataTable data = dbController.ExecuteQuery(dbController.GetSelectStr(this.table, this.columns, new string[1] { "team_id" }, new string[1] { id.ToString() }));
+
+            foreach (DataRow row in data.Rows)
             {
-                var reader = dbController.executeQuery(dbController.getSelectStr(this.table, this.columns, keys, values));
-                
-                while(reader.Read())
-                {
-                    team = new Team(){ id = reader.GetString(0), name = reader.GetString(1)};
-                }
-
-                dbController.closeConnection();
-
-            } catch (Exception e)
-            {
-
+                team = new Team() { id = row.Field<int>(0), name = row.Field<string>(1) };
             }
 
             return team;
         }
         
-        [HttpPost("{name}")]
-        public void Post(string name) 
-        {
-            string[] keys = new string[1]{name};
-            
-            try 
-            {
-                dbController.executeNonQuery(dbController.getInsertStr(this.table, this.columnsNoID, keys)); 
-                dbController.closeConnection();
-
-            } catch (Exception e)
-            {
-
-            }
+        [HttpPost]
+        public void Post([FromBody]string name) 
+        {            
+            dbController.ExecuteNonQuery(dbController.GetInsertStr(this.table, this.columnsNoID, new string[1] { name })); 
         }
     }
 }

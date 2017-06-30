@@ -1,5 +1,6 @@
 using go_betz_backend.Services;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace go_betz_backend.Controllers
 {
@@ -7,40 +8,25 @@ namespace go_betz_backend.Controllers
     {
         public dbConnection db = new dbConnection();
 
-        public MySqlDataReader executeQuery(string query) 
+        public DataTable ExecuteQuery(string query) 
         {
-            var dbCon = db.Instance();
+            DataTable data = null;
 
-            if (dbCon.IsConnect())
-            {
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                var reader = cmd.ExecuteReader();
-                return reader;
-            }
+            db.OpenConnection();
+            data = db.GetData(query);
+            db.CloseConnection();
 
-            return null;
+            return data;
         }
         
-        public void executeNonQuery(string query) 
+        public void ExecuteNonQuery(string query)
         {
-            var dbCon = db.Instance();
-
-            if (dbCon.IsConnect())
-            {
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                cmd.ExecuteNonQuery();
-            }
+            db.OpenConnection();
+            db.ExecuteNonQuery(query);
+            db.CloseConnection();
         }
 
-        public void closeConnection() 
-        {
-            try{
-                dbCon.Close();
-            } catch (Exception e){
-            }
-        }
-
-        public string getSelectStr(string tableName, string[] columns, string[] keys = null, string[] values = null) 
+        public string GetSelectStr(string tableName, string[] columns, string[] keys = null, string[] values = null) 
         {
             if (keys.Length != values.Length) {
                 return "";
@@ -62,7 +48,7 @@ namespace go_betz_backend.Controllers
             return command;
         }
 
-        public string getInsertStr(string tableName, string[] columns, string[] values) 
+        public string GetInsertStr(string tableName, string[] columns, string[] values) 
         {
             if (columns.Length != values.Length) {
                 return "";

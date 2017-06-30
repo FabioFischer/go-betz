@@ -7,7 +7,6 @@ namespace go_betz_backend.Services
     public class dbConnection
     {
         public MySqlConnection mySqlConnection;
-        public MySqlCommand mySqlCommand;
 
         public dbConnection()
         {
@@ -27,7 +26,7 @@ namespace go_betz_backend.Services
             return connectionString.ToString();
         }
 
-        public void OpenConnect()
+        public void OpenConnection()
         {
             if (mySqlConnection != null && mySqlConnection.State == ConnectionState.Closed)
             {
@@ -35,7 +34,7 @@ namespace go_betz_backend.Services
             }
         }
 
-        public void CloseConnect()
+        public void CloseConnection()
         {
             if (mySqlConnection != null && mySqlConnection.State == ConnectionState.Open)
             {
@@ -48,6 +47,12 @@ namespace go_betz_backend.Services
         {
             var mySqlCommand = new MySqlCommand(query, this.mySqlConnection);
             return mySqlCommand;
+        }
+
+        public void ExecuteNonQuery(string query)
+        {
+            MySqlCommand mySqlCommand = this.InitSqlCommand(query);
+            mySqlCommand.ExecuteNonQuery();
         }
 
         public DataTable GetData(string query)
