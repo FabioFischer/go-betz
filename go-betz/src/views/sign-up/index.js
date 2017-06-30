@@ -25,7 +25,7 @@ class Signup extends ComponentWrapper {
 
   async onRegister() {
     try {
-      const services = await Auth.signIn('', {
+      const services = await Auth.signIn('http://localhost:51053', {
         email: this.state.email,
         username: this.state.username,
         password: this.state.password
