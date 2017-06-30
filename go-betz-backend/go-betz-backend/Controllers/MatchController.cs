@@ -10,15 +10,15 @@ using System.Data;
 
 namespace go_betz_backend.Controllers
 {
-    [Route("api/matches")]
+    [Route("matches")]
     public class MatchController : ApiController
     {
         public dbController dbController = new dbController();
         public TeamController teamController = new TeamController();
 
         public string table = "t_match";
-        public string[] columns = new string[6] { "match_id", "match_description", "team_a_id", "team_b_id", "winner_team_id", "date"};
-        public string[] columnsNoID = new string[5] { "match_description", "team_a_id", "team_b_id", "winner_team_id", "date" };
+        public string[] columns = new string[6] { "match_id", "match_description", "team_id_1", "team_id_2", "winner_team_id", "date"};
+        public string[] columnsNoID = new string[5] { "match_description", "team_id_1", "team_id_2", "winner_team_id", "date" };
 
         public Match GetMatchByID(int id)
         {

@@ -25,7 +25,7 @@ namespace go_betz_backend.Services
 
         private string getConnectionString()
         {
-            string server = "dbgobetz.mysql.uhserver.mySqlCommand";
+            string server = "dbgobetz.mysql.uhserver.com";
             string db = "dbgobetz";
             string uid = "gobetzadmin";
             string pass = "@2017goBetz";

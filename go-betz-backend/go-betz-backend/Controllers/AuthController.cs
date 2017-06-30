@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace go_betz_backend.Controllers
 {
-    [Route("api/auth")]
+    [Route("auth")]
     public class AuthController : ApiController
     {
         public dbController dbController = new dbController();
@@ -29,7 +29,7 @@ namespace go_betz_backend.Controllers
         }
         
         [HttpPost]
-        [Route("api/auth/sign_in")]
+        [Route("auth/sign_in")]
         public void Post() 
         {
         }

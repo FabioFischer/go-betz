@@ -7,7 +7,7 @@ using System.Data;
 
 namespace go_betz_backend.Controllers
 {
-    [Route("api/bets")]
+    [Route("bets")]
     public class MatchBetController : ApiController
     {
         public dbController dbController = new dbController();
