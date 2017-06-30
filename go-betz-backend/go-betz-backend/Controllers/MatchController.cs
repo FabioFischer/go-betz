@@ -19,7 +19,29 @@ namespace go_betz_backend.Controllers
         public string table = "t_match";
         public string[] columns = new string[6] { "match_id", "match_description", "team_a_id", "team_b_id", "winner_team_id", "date"};
         public string[] columnsNoID = new string[5] { "match_description", "team_a_id", "team_b_id", "winner_team_id", "date" };
-        
+
+        public Match GetMatchByID(int id)
+        {
+            Match match = null;
+
+            DataTable data = dbController.ExecuteQuery(dbController.GetSelectStr(this.table, this.columns, new string[1] { "match_id" }, new string[1] { id.ToString() }));
+
+            foreach (DataRow row in data.Rows)
+            {
+                match = new Match()
+                {
+                    id = row.Field<int>(0),
+                    description = row.Field<string>(1),
+                    teamA = (!row.Field<int>(2).Equals(DBNull.Value)) ? this.teamController.GetTeamByID(row.Field<int>(2)) : null,
+                    teamB = (!row.Field<int>(3).Equals(DBNull.Value)) ? this.teamController.GetTeamByID(row.Field<int>(3)) : null,
+                    winner = (!row.Field<int>(4).Equals(DBNull.Value)) ? this.teamController.GetTeamByID(row.Field<int>(4)) : null,
+                    date = row.Field<string>(5)
+                };
+            }
+
+            return match;
+        }
+
         [HttpGet]
         public List<Match> Get() 
         {

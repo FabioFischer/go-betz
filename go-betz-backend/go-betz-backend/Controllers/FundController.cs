@@ -16,8 +16,8 @@ namespace go_betz_backend.Controllers
         public dbController dbController = new dbController();
 
         public string table = "t_transaction";
-        public string[] columns = new string[9] { "transaction_id", "user_id", "value", "credit_card", "expiration", "cvv", "card_name", "adress", "fone"};
-        public string[] columnsNoID = new string[8] { "user_id", "value", "credit_card", "expiration", "cvv", "card_name", "adress", "fone"};
+        public string[] columns = new string[9] { "transaction_id", "user_id", "credit_card", "expiration_date", "cvv", "value", "tran_name", "tran_adress", "tran_fone" };
+        public string[] columnsNoID = new string[8] { "user_id", "credit_card", "expiration_date", "cvv", "value", "tran_name", "tran_adress", "tran_fone" };
 
         [HttpGet]
         public float Get(int id) 

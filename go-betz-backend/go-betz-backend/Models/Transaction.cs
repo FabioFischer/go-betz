@@ -8,5 +8,8 @@ namespace go_betz_backend.Models
         public string expirationDate { get; set; }
         public string cvv { get; set; }
         public float value { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
+        public string fone { get; set; }
     }
 }
