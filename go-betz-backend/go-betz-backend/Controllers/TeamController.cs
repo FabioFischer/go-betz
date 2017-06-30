@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace go_betz_backend.Controllers
 {
-    [Route("api/team")]
+    [Route("team")]
     public class TeamController : ApiController
     {
         public dbController dbController = new dbController();

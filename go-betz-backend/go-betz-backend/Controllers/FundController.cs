@@ -10,7 +10,7 @@ using System.Data;
 
 namespace go_betz_backend.Controllers
 {
-    [Route("api/fund")]
+    [Route("fund")]
     public class FundController : ApiController
     {
         public dbController dbController = new dbController();
