@@ -11,7 +11,7 @@ namespace go_betz_backend.Controllers
     [Route("api/bets")]
     public class MatchBetController : ApiController
     {
-        public DBController dbController = new DBController();
+        public dbController dbController = new dbController();
 
         [HttpGet]
         public List<MatchBet> Get() 

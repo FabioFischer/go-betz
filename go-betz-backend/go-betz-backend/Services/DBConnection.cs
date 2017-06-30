@@ -1,53 +1,69 @@
 using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 
 namespace go_betz_backend.Services
 {
-    public class DBConnection
+    public class dbConnection
     {
-        private MySqlConnection connection = null;
-        private static DBConnection _instance = null;
+        public MySqlConnection mySqlConnection;
+        public MySqlCommand mySqlCommand;
 
-        private string connString = "Server=dbgobetz.mysql.uhserver.com; database=dbgobetz; " + "UID=gobetzadmin; password=@go-2017Betz";
-
-        private DBConnection()
+        public dbConnection()
         {
+            mySqlConnection = new MySqlConnection(this.getConnectionString()); 
         }
 
-        public MySqlConnection Connection
+        private string getConnectionString()
         {
-            get { return connection; }
+            string server = "dbgobetz.mysql.uhserver.mySqlCommand";
+            string db = "dbgobetz";
+            string uid = "gobetzadmin";
+            string pass = "@go - 2017Betz";
+
+            var connectionString = 
+                String.Format("server = {0}; database = {1}; UID = {2}; password = {3}", server, db, uid, pass);
+            
+            return connectionString.ToString();
         }
 
-        public static DBConnection Instance()
+        public void OpenConnect()
         {
-            if (_instance == null) {
-                _instance = new DBConnection();
-            }
-           
-           return _instance;
-        }
-
-        public bool IsConnect()
-        {
-            bool result = false;
-            if (Connection == null)
+            if (mySqlConnection != null && mySqlConnection.State == ConnectionState.Closed)
             {
-                if (String.IsNullOrEmpty(connString)) {
-                    return false;
-                }
-                    
-                connection = new MySqlConnection(connString);
-                connection.Open();
-                result = true;
+                mySqlConnection.Open();
             }
-
-            return result;
         }
 
-        public void Close()
+        public void CloseConnect()
         {
-            connection.Close();
-        }        
+            if (mySqlConnection != null && mySqlConnection.State == ConnectionState.Open)
+            {
+                mySqlConnection.Close();
+                this.Finalize();
+            }
+        }
+
+        public MySqlCommand InitSqlCommand(string query)
+        {
+            var mySqlCommand = new MySqlCommand(query, this.mySqlConnection);
+            return mySqlCommand;
+        }
+
+        public DataTable GetData(string query)
+        {
+            var dataTable = new DataTable();
+            var dataSet = new DataSet();
+            var dataAdapter = new MySqlDataAdapter { SelectCommand = InitSqlCommand(query) };
+
+            dataAdapter.Fill(dataSet);
+            dataTable = dataSet.Tables[0];
+            return dataTable;
+        }
+        private void Finalize()
+        {
+            if (mySqlConnection != null && mySqlConnection.State == ConnectionState.Closed)
+                mySqlConnection.Dispose();
+        }
     }
 }

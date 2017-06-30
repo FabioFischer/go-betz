@@ -11,7 +11,7 @@ namespace go_betz_backend.Controllers
     [Route("api/fund")]
     public class FundController : ApiController
     {
-        public DBController dbController = new DBController();
+        public dbController dbController = new dbController();
 
         [HttpGet("{id}")]
         public void Get(int id) 

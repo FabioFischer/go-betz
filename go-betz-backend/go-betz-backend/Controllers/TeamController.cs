@@ -11,7 +11,7 @@ namespace go_betz_backend.Controllers
     [Route("api/team")]
     public class TeamController : ApiController
     {
-        public DBController dbController = new DBController();
+        public dbController dbController = new dbController();
 
         public string table = "t_team";
         public string[] columns = new string[2]{"team_id", "team_name"};

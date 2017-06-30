@@ -11,7 +11,7 @@ namespace go_betz_backend.Controllers
     [Route("api/auth")]
     public class AuthController : ApiController
     {
-        public DBController dbController = new DBController();
+        public dbController dbController = new dbController();
         
         [HttpPost("{ email, username, password }")] 
         public void Post(string email, string username, string password) 

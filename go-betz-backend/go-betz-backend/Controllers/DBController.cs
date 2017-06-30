@@ -3,11 +3,11 @@ using MySql.Data.MySqlClient;
 
 namespace go_betz_backend.Controllers
 {
-    public class DBController
+    public class dbController
     {
-        public DBConnection db = new DBConnection();
+        public dbConnection db = new dbConnection();
 
-        public SqlDataReader executeQuery(string query) 
+        public MySqlDataReader executeQuery(string query) 
         {
             var dbCon = db.Instance();
 
@@ -17,6 +17,8 @@ namespace go_betz_backend.Controllers
                 var reader = cmd.ExecuteReader();
                 return reader;
             }
+
+            return null;
         }
         
         public void executeNonQuery(string query) 

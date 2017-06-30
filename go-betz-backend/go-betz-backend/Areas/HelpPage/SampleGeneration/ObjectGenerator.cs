@@ -436,7 +436,7 @@ namespace go_betz_backend.Areas.HelpPage
                     { 
                         typeof(Uri), index =>
                         {
-                            return new Uri(String.Format(CultureInfo.CurrentCulture, "http://webapihelppage{0}.com", index));
+                            return new Uri(String.Format(CultureInfo.CurrentCulture, "http://webapihelppage{0}.mySqlCommand", index));
                         }
                     },
                 };
