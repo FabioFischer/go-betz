@@ -1,7 +1,6 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Team = sequelize.define('t_team', {
-    team_id: DataType.INTEGER,
-    team_name: DataType.STRING
+    name: DataTypes.STRING
   });
 
   return Team;
