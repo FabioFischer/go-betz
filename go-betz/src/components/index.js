@@ -5,8 +5,8 @@ import AdministrativeRoute from './AdministrativeRoute';
 import ComponentWrapper from './ComponentWrapper';
 import Match from './Match';
 import Bet from './Bet';
-import Picker from './Picker';
+import Select from './Select';
 
 export {
-  Field, Button, AuthenticatedRoute, ComponentWrapper, Match, Bet, Picker, AdministrativeRoute
+  Field, Button, AuthenticatedRoute, ComponentWrapper, Match, Bet, Select, AdministrativeRoute
 };

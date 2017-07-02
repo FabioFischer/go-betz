@@ -1,5 +1,4 @@
 import React from 'react';
-import './new-bet.css';
 
 import _ from 'lodash';
 

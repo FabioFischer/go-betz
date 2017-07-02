@@ -1,12 +1,9 @@
 import React from 'react';
 
-import './sign-in.css';
+import { TextField, FlatButton } from 'material-ui';
+import { auth } from './../../services';
 
-import { Field, Button, ComponentWrapper } from './../../components';
-
-import Auth from './../../services/auth';
-
-class Signin extends ComponentWrapper {
+class Signin extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,27 +13,28 @@ class Signin extends ComponentWrapper {
     };
   }
 
-  onFieldChange(field, event) {
-    const obj = {};
+  handleEmailChange = (event, newValue) => this.setState({ email: newValue });
 
-    obj[field] = event.target.value
+  handlePasswordChange = (event, newValue) => this.setState({ password: newValue });
 
-    this.setState(obj);
-  }
+  handleSignup = () => super.goTo('sign-up');
 
-  async onLogin() {
+  async handleLogin(event) {
+    event.preventDefault();
+
+    const requestBody = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
     try {
-      const services = await Auth.signIn('http://localhost:51053', { username: this.state.username, password: this.state.password });
+      await auth.signIn(requestBody);
 
-      this.goTo('matches', { services });
-    } catch (err) {
-      alert('Falha ao logar');
+      this.props.history.push('matches');
+    } catch (e) {
+      alert(`Error: ${JSON.stringify(e)}`);
     }
-  }
-
-  onSignUp() {
-    this.goTo('sign-up');
-  }
+  };
 
   render() {
     return (
@@ -44,12 +42,14 @@ class Signin extends ComponentWrapper {
         <div className='sign-in--content'>
           <h3>Login</h3>
           <div className='sign-in--form'>
-            <Field type='email' value={this.state.email} onChange={e => this.onFieldChange('email', e)} placeholder='Email' name='email' />
-            <Field type='password' value={this.state.password} onChange={e => this.onFieldChange('password', e)} placeholder='Senha' name='password' />
+            <form>
+              <TextField hintText='example@example.com' name='email' value={this.state.email} floatingLabelText='Email' onChange={this.handleEmailChange} />
+              <TextField hintText='minha-senha-segura' name='password' value={this.state.password} floatingLabelText='Senha' onChange={this.handlePasswordChange} type='password' />
+            </form>
           </div>
           <div className='sign-in--action'>
-            <Button text='Entrar' onClick={() => this.onLogin()} />
-            <Button text='Registrar-se' onClick={() => this.onSignUp()} />
+            <FlatButton label='Entrar' primary onTouchTap={this.handleLogin.bind(this)} />
+            <FlatButton label='Novo cadastro' primary onTouchTap={this.handleSignup} />
           </div>
         </div>
       </div>

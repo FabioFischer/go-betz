@@ -1,41 +1,23 @@
-import _ from 'lodash';
-import BaseApi from './base';
-import repositories from './repositories';
+import Fetch from './base';
 
-const signUp = async (url, attributes) => {
-  const fetchApi = BaseApi.create(url.trim());
-  let { status, data, errors } = await fetchApi.post('/auth', attributes);
+const baseUrl = 'http://localhost:5000';
 
-  if (_.has(errors, 'full_messages')) {
-    errors = errors.full_messages;
-  }
+const signIn = async (attributes) => {
+  const api = Fetch.create(baseUrl);
 
-  if (status === 'error') {
-    throw new Error(_(errors).uniq().join('\n'));
-  }
+  const { user } = await api.post('/auth/sign_in', attributes);
 
-  return _.assign({ currentUser: data }, _.mapValues(
-    _.mapKeys(repositories, _.rearg(_.camelCase, 1)),
-    repository => repository.create(fetchApi)
-  ));
+  return user;
 };
 
-const signIn = async (url, attributes) => {
-  const fetchApi = BaseApi.create(url.trim());
-  let { status, data, errors } = await fetchApi.post('/auth/sign_in', attributes);
+const signUp = async (attributes) => {
+  const api = Fetch.create(baseUrl);
 
-  if (_.has(errors, 'full_messages')) {
-    errors = errors.full_messages;
-  }
+  const { user } = await api.post('/auth/sign_up', attributes);
 
-  if (status === 'error' || _.some(errors)) {
-    throw new Error(_(errors).uniq().join('\n'));
-  }
+  return user;
+};
 
-  return _.assign({ currentUser: data }, _.mapValues(
-    _.mapKeys(repositories, _.rearg(_.camelCase, 1)),
-    repository => repository.create(fetchApi)
-  ));
-}
+window.signIn = signIn
 
 export default { signUp, signIn };

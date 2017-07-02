@@ -1,81 +1,75 @@
 import React from 'react';
-import './new-match.css';
 
-import { Field, Button, Picker, ComponentWrapper } from './../../components';
+import { TextField, DatePicker, TimePicker, FlatButton } from 'material-ui';
+import { Select } from './../../components';
 
-class NewMatch extends ComponentWrapper {
-  constructor(props) {
-    super(props);
+import { team, match } from './../../services';
 
-    this.state = {
-      description: '',
-      teamA: '',
-      teamB: '',
-      date: '',
-      teams: []
-    };
-  }
+class NewMatch extends React.Component {
+  state = {
+    description: '',
+    teamA: 0,
+    teamB: 0,
+    date: {},
+    time: {},
+    teams: []
+  };
 
-  onFieldChange(field, event) {
-    const obj = {};
+  handleDescriptionChange = (e, newValue) => this.setState({ description: newValue });
+  handleTeamAChange = (e, index, newValue) => this.setState({ teamA: newValue });
+  handleTeamBChange = (e, index, newValue) => this.setState({ teamB: newValue });
+  handleDateChange = (e, newValue) => this.setState({ date: newValue });
+  handleTimeChange = (e, newValue) => this.setState({ time: newValue });
 
-    obj[field] = event.target.value
+  handleCancel = () => this.props.history.push('matches');
 
-    this.setState(obj);
-  }
+  async handleSave(event) {
+    event.preventDefault();
 
-  goBack() {
-    this.goTo('matches');
-  }
-
-  async onSave() {
-    const model = {
+    const requestBody = {
+      description: this.state.description,
       teamA: this.state.teamA,
       teamB: this.state.teamB,
-      description: this.state.description,
-      date: this.state.date
+      date: this.state.date,
+      time: this.state.time
     };
 
     try {
-      await this.services.matchesRepository.save(model);
-      this.goBack();
-    } catch (err) {
-      alert('Erro ao salvar partida');
+      await match.saveMatch(requestBody);
+
+      alert('match created');
+
+      this.props.location.push('matches');
+    } catch (e) {
+      alert(`Error: ${JSON.stringify(e)}`);
     }
   }
 
   async componentDidMount() {
-    const teams = await this.teamsRepository.all();
-
-    // const teams = [
-    //   { id: 9, name: 'Fnatic' },
-    //   { id: 6, name: 'TSM' },
-    //   { id: 5, name: 'SK Gaming' },
-    //   { id: 1, name: 'Virtus Pro' },
-    //   { id: 2, name: 'Liquid' },
-    //   { id: 3, name: 'NaVi' },
-    //   { id: 4, name: 'Astralis' },
-    // ];
+    const teams = await team.listTeams();
 
     this.setState({
       teams
-    })
+    });
   }
 
   render() {
     return (
-      <div className='new-match page upner--page'>
+      <div className='new-match page'>
         <div className='new-match--content'>
-          <h3>Nova partida</h3>
+          <h2>NEW MATCH</h2>
           <div className='new-match--form'>
-            <Field type='text' value={this.state.description} onChange={e => this.onFieldChange('description', e)} placeholder='Título' name='description' />
-            <Picker values={this.state.teams} value={this.state.teamA} onChange={e => this.onFieldChange('teamA', e)} placeholder='Time A' name='teamA' />
-            <Picker values={this.state.teams} value={this.state.teamB} onChange={e => this.onFieldChange('teamB', e)} placeholder='Time B' name='teamB' />
-            <Field type='datetime-local' value={this.state.date} onChange={e => this.onFieldChange('date', e)} placeholder='Data' name='date' />
+            <form>
+              <TextField name='description' onChange={this.handleDescriptionChange} floatingLabelText='Title' value={this.state.description} />
+              <Select items={this.state.teams} floatingLabelText='Team A' onChange={this.handleTeamAChange} value={this.state.teamA} />
+              <Select items={this.state.teams} floatingLabelText='Team B' onChange={this.handleTeamBChange} value={this.state.teamB} />
+              <DatePicker autoOk floatingLabelText='Date' value={this.state.date} onChange={this.handleDateChange} />
+              <TimePicker autoOk floatingLabelText='Time' value={this.state.time} onChange={this.handleTimeChange} />
+            </form>
           </div>
           <div className='new-match--actions'>
-            <Button text='Salvar' onClick={() => this.onSave()} />
-            <Button text='Cancelar' onClick={() => this.goBack()} />
+            <FlatButton label='save' secondary onTouchTap={this.handleSave.bind(this)} />
+            <FlatButton label='cancel' secondary onTouchTap={this.handleCancel} />
           </div>
         </div>
       </div>

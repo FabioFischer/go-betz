@@ -1,5 +1,4 @@
 import React from 'react';
-import './add-funds.css';
 
 import { Field, Button, ComponentWrapper } from './../../components';
 

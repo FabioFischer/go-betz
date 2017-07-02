@@ -1,5 +1,4 @@
 import React from 'react';
-import './field.css';
 
 const Field = ({ name, value, placeholder, onChange, type, size }) => (
   <div className={`field ${size || 'medium'}`}>

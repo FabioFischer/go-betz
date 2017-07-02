@@ -4,7 +4,6 @@ const ExternalLink = (text, url) => <a href={url || '#'}>{text}</a>;
 const Fabio = () => ExternalLink('Fabio L. Fischer', 'https://www.linkedin.com/in/fábio-fischer-08a778120/');
 const Matheus = () => ExternalLink('Matheus F. Klauberg', 'https://www.linkedin.com/in/matheus-felipe-klauberg-91273897/');
 const CounterStrike = () => ExternalLink('Counter Strike: Global Offensive (CS:GO)', 'https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive');
-const Steam = () => ExternalLink('Steam', 'http://steamcommunity.com')
 
 const Content = () => (
   <div>

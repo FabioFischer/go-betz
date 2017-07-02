@@ -1,18 +1,32 @@
 import React from 'react';
-import './match.css';
+import { Card, CardActions, CardTitle, FlatButton } from 'material-ui';
 
-const Match = ({ onClick, description, teamA, date, teamB, winner }) => (
-  <div onClick={() => onClick ? onClick() : ''}  className={`match ${winner && winner.id ? 'finished' : ''} ${onClick ? 'clickable' : ''}`}>
-    <div className='match--header'>
-      <div className='match--title'>{description}</div>
-      <div className='match--date'>{date}</div>
-    </div>
-    <div className='match--content'>
-      <div className={`match--team ${winner && teamA ? winner.id === teamA.id ? 'winner' : 'looser' : ''}`}>{teamA ? teamA.name : ''}</div>
-      <div className='match--versus'>x</div>
-      <div className={`match--team ${winner && teamB ? winner.id === teamB.id ? 'winner' : 'looser' : ''}`}>{teamB ? teamB.name : ''}</div>
-    </div>
-  </div>
-);
+class Match extends React.Component {
+  state = {
+    expanded: false
+  };
+
+  handleExpandChange = expanded => this.setState(prevState => ({ expanded: !prevState.expanded }));
+
+  render() {
+    const { description, teamA, teamB, date, winner } = this.props;
+
+    if (winner) {
+      if (winner.id === teamA.id) teamA.name = `👑 ${teamA.name} 👑`;
+      if (winner.id === teamB.id) teamB.name = `👑 ${teamB.name} 👑`;
+    }
+
+    return (
+      <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+        <CardTitle title={`${teamA.name} vs. ${teamB.name} ⏤ ${date}`} subtitle={description} />
+        <CardActions>
+          <FlatButton label='new bet' primary />
+          <FlatButton label='close bets' secondary />
+          <FlatButton label='declare winner' secondary />
+        </CardActions>
+      </Card>
+    );
+  }
+}
 
 export default Match;

@@ -1,55 +1,57 @@
 import _ from 'lodash';
 
-const headers = {
-  'Accept': 'application/json',
-  'Content-Type': 'application/json',
-};
-
-const headersNameAuthentication = ['access-token', 'token-type', 'client', 'expiry', 'uid'];
-
-const create = (baseUrl, headersAuthentication = {}) => {
+const create = (baseUrl, authHeaders = {}) => {
+  const defaultHeaders = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  };
 
   const updateHeaders = headers => {
-    for (let headerName of headersNameAuthentication) {
-      if (headers.has(headerName)) {
-        headersAuthentication[headerName] = headers.get(headerName);
+    const expectedHeaders = ['x-access-token'];
+
+    for (let header of expectedHeaders) {
+      if (headers.has(header)) {
+        authHeaders[header] = headers.get(header);
       }
     }
   };
 
-  const request = async (method, uri, data) => {
-    const esc = encodeURIComponent;
-    const query = method === 'GET' ? Object.keys(data || {})
-        .map(k => esc(k) + '=' + esc(data[k]))
-        .join('&') : undefined;
+  const request = async (method, url, data) => {
+    const options = method === 'GET' ? {} : { body: JSON.stringify(data) };
+    const extendedOptions = Object.assign({}, options, {
+      method,
+      headers: Object.assign({}, defaultHeaders, authHeaders)
+    });
 
-    const settings = method === 'GET' ? {} : { body: JSON.stringify(data) };
+    const fetchUrl = `${baseUrl}${url}`;
 
-    const response = await fetch(`${baseUrl}${uri}${query ? '?' + query : ''}`, _.assign(settings, {
-      method: method,
-      headers: _.assign({}, headers, headersAuthentication),
-    }));
+    const requestResponse = await fetch(fetchUrl, extendedOptions);
 
-    updateHeaders(response.headers);
-    const responseAsJson = await response.json();
+    updateHeaders(requestResponse.headers);
 
-    if (response.status >= 400 && response.status <= 499) {
-      const errors = _.get(responseAsJson, 'errors.full_messages') || _.get(responseAsJson, 'errors')
-      const message = _.join(_.uniq(errors), '\n') || responseAsJson;
-      throw new Error(message);
+    const jsonResponse = await requestResponse.json();
+
+    if (requestResponse.status >= 400 && requestResponse.status <= 499) {
+      const errorMessage = _.get(jsonResponse, 'error.message') || _.get(jsonResponse, 'message');
+
+      throw new Error(errorMessage);
     }
 
-    return responseAsJson;
-  }
+    return jsonResponse;
+  };
 
   const get = _.partial(request, 'GET');
   const post = _.partial(request, 'POST');
   const put = _.partial(request, 'PUT');
   const destroy = _.partial(request, 'DELETE');
 
-  const withRoute = route => create(`${baseUrl}/${route}`, headersAuthentication);
+  const withRoute = route => create(`${baseUrl}/${route}`, authHeaders);
 
-  return { get, post, put, destroy, withRoute };
+  return {
+    get, post, put, destroy, withRoute
+  };
 };
 
-export default { create };
+export default {
+  create
+};

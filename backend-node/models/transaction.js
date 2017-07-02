@@ -1,7 +1,7 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Transaction = sequelize.define('t_transaction', {
-    transaction_id: DataType.INTEGER,
-    user_id: DataType.INTEGER,
+    transaction_id: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER,
     credit_card: DataTypes.STRING,
     expiration_date: DataTypes.STRING,
     cvv: DataTypes.STRING,

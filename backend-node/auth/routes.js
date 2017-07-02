@@ -5,7 +5,7 @@ module.exports = app => {
 
   app.get('/auth/roles', actions.listRoles);
 
-  app.post('/auth/alter_role', actions.alterRole);
+  app.post('/auth/alter_role', actions.alterUserRole);
 
   app.post('/auth/sign_in', actions.signIn);
 

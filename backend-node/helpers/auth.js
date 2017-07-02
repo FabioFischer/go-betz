@@ -8,13 +8,13 @@ const digest = 'sha512';
 
 const segurifyPassword = password => {
   const salt = crypto.randomBytes(128).toString('base64');
-  const hash = pbkdf2.pbkdf2Sync(password, salt, iterations, keylength, digest).toString('base64');
+  const hash = pbkdf2.pbkdf2Sync(password.toString(), salt, iterations, keylength, digest).toString('base64');
 
   return { salt, hash };
 };
 
 const verifyPassword = (attempt, hash, salt) => {
-  const attemptHash = pbkdf2.pbkdf2Sync(attempt, salt, iterations, keylength, digest).toString('base64');
+  const attemptHash = pbkdf2.pbkdf2Sync(attempt.toString(), salt, iterations, keylength, digest).toString('base64');
 
   return attemptHash === hash;
 };

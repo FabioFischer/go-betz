@@ -1,5 +1,4 @@
 import React from 'react';
-import './bet.css';
 
 const Bet = ({ onClick, value, date, team }) => (
   <div onClick={() => onClick ? onClick() : ''} className={`bet ${onClick ? 'clickable' : ''}`}>

@@ -1,59 +1,52 @@
 import React from 'react';
-import './sign-up.css';
+import { TextField, FlatButton } from 'material-ui';
 
-import { Field, Button, ComponentWrapper } from './../../components';
+import { auth } from './../../services/';
 
-import Auth from './../../services/auth';
+class Signup extends React.Component {
+  state = {
+    email: '',
+    username: '',
+    password: '',
+  };
 
-class Signup extends ComponentWrapper {
-  constructor(props) {
-    super(props);
+  handleEmailChange = (event, newValue) => this.setState({ email: newValue });
+  handleUsernameChange = (event, newValue) => this.setState({ username: newValue });
+  handlePasswordChange = (event, newValue) => this.setState({ password: newValue });
 
-    this.state = {
-      email: '',
-      password: ''
+  handleCancel = () => this.props.history.push('/sign-in');
+
+  async handleRegistration(event) {
+    event.preventDefault();
+
+    const requestBody = {
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password
     };
-  }
 
-  onFieldChange(field, event) {
-    const obj = {};
-
-    obj[field] = event.target.value
-
-    this.setState(obj);
-  }
-
-  async onRegister() {
     try {
-      const services = await Auth.signUp('http://localhost:51053', {
-        email: this.state.email,
-        username: this.state.username,
-        password: this.state.password
-      });
+      await auth.signUp(requestBody);
 
-      this.goTo('matches', { services });
-    } catch (err) {
-      alert('Falha ao logar');
+      this.props.history.push('matches');
+    } catch (e) {
+      alert(`Error: ${JSON.stringify(e)}`);
     }
   }
 
-  goBack() {
-    this.goTo('sign-in');
-  };
-
   render() {
     return (
-      <div className='sign-up page upner--page'>
+      <div className='sign-up page'>
         <div className='sign-up--content'>
-          <h3>Novo registro</h3>
-          <div className='sign-up--form'>
-            <Field type='email' value={this.state.email} onChange={e => this.onFieldChange('email', e)} placeholder='Email' name='email' />
-            <Field type='text' value={this.state.username} onChange={e => this.onFieldChange('username', e)} placeholder='Usuário' name='username' />
-            <Field type='password' value={this.state.password} onChange={e => this.onFieldChange('password', e)} placeholder='Senha' name='password' />
-          </div>
-          <div className='sign-up--action'>
-            <Button text='Cadastrar' onClick={() => this.onRegister()} />
-            <Button text='Voltar' onClick={() => this.goBack()} />
+          <h2>Novo registro</h2>
+          <form>
+            <TextField name='email' value={this.state.email} onChange={this.handleEmailChange} floatingLabelText='Email' />
+            <TextField name='username' value={this.state.username} onChange={this.handleUsernameChange} floatingLabelText='Usuário' />
+            <TextField name='password' value={this.state.password} onChange={this.handlePasswordChange} floatingLabelText='Senha' type='password' />
+          </form>
+          <div className='sign-up'>
+            <FlatButton label='Salvar' primary onTouchTap={this.handleRegistration.bind(this)} />
+            <FlatButton label='Cancelar' primary onTouchTap={this.handleCancel} />
           </div>
         </div>
       </div>

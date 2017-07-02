@@ -5,12 +5,12 @@ import Signup from './sign-up';
 
 import Matches from './matches';
 import NewMatch from './new-match';
-import MatchDetail from './match-detail';
+// import MatchDetail from './match-detail';
 
-import MyBets from './my-bets';
-import NewBet from './new-bet';
+// import MyBets from './my-bets';
+// import NewBet from './new-bet';
 
-import AddFunds from './add-funds';
+// import AddFunds from './add-funds';
 
 import NewTeam from './new-team';
 
@@ -22,10 +22,10 @@ export {
   Signup,
   Matches,
   NewMatch,
-  MatchDetail,
-  MyBets,
-  NewBet,
-  AddFunds,
+  // MatchDetail,
+  // MyBets,
+  // NewBet,
+  // AddFunds,
   NewTeam,
   Home
 }

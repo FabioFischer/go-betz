@@ -1,43 +1,38 @@
 import React from 'react';
 
-import { Match, ComponentWrapper } from './../../components';
+import { Match } from './../../components';
+import { FlatButton } from 'material-ui';
 
-class Matches extends ComponentWrapper {
-  constructor(props) {
-    super(props);
+import { match } from './../../services';
 
-    this.state = {
-      matches: []
-    };
-  }
+class Matches extends React.Component {
+  state = {
+    matches: [],
+  };
+
+  handleNewMatch = () => this.props.history.push('new-match');
+  handleNewTeam = () => this.props.history.push('new-team');
 
   async componentDidMount() {
-    try {
-      const matches = await this.services.matchesRepository.all();
-      this.setState({
-        matches
-      });
+    const matches = await match.listMatches() || [];
 
-    } catch (err) {
-      alert('Erro ao tentar obter partidas');
-    }
-
-  }
-
-  goToMatch(match) {
-    this.goTo('match-detail', { match });
+    this.setState({
+      matches
+    });
   }
 
   render() {
     return (
-      <div className='matches page inner-page'>
+      <div className='matches page'>
         <div className='matches--content'>
-          <h3>Partidas</h3>
-          <div className='matches--wrapper'>
+          <h2>Matches</h2>
+          <div className='matches--actions'>
+            <FlatButton label='new match' secondary onTouchTap={this.handleNewMatch} />
+            <FlatButton label='new team' secondary onTouchTap={this.handleNewTeam} />
+          </div>
+          <div className='matches--list'>
             {
-              this.state.matches.map((match, index) => (
-                <Match onClick={() => this.goToMatch(match)} key={index} {...match} />)
-              )
+              this.state.matches.map(match => <Match {...match} key={match.id} />)
             }
           </div>
         </div>

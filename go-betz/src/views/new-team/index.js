@@ -1,54 +1,49 @@
 import React from 'react';
-import './new-team.css';
 
-import { Field, Button, ComponentWrapper } from './../../components';
+import { TextField, FlatButton } from 'material-ui';
 
-class NewTeam extends ComponentWrapper {
-  constructor(props) {
-    super(props);
+import { team } from './../../services';
 
-    this.state = {
-      name: ''
-    };
-  }
+class NewTeam extends React.Component {
+  state = {
+    name: ''
+  };
 
-  onFieldChange(field, event) {
-    const obj = {};
+  handleNameChange = (e, newValue) => this.setState({ name: newValue });
 
-    obj[field] = event.target.value
+  handleCancel = () => this.props.history.push('matches');
 
-    this.setState(obj);
-  }
+  async handleSave(event) {
+    event.preventDefault();
 
-  goBack() {
-    this.goTo('matches');
-  }
-
-  async onSave() {
-    const model = {
+    const requestBody = {
       name: this.state.name
     };
 
     try {
-      await this.services.teamsRepository.save(model);
+      await team.saveTeam(requestBody);
 
-      this.goBack();
-    } catch (err) {
-      alert('Erro ao salvar time');
+      alert('team created!');
+
+      this.props.history.push('matches');
+    } catch (e) {
+      alert(`Error: ${JSON.stringify(e)}`);
     }
   }
 
   render() {
     return (
-      <div className='new-team page upner--page'>
+      <div className='new-team page'>
         <div className='new-team--content'>
-          <h3>Novo time</h3>
-          <div className='new-team--form'>
-            <Field type='text' value={this.state.name} onChange={e => this.onFieldChange('name', e)} placeholder='Nome' name='name' />
+          <h2>NEW TEAM</h2>
+          <div>
+            <form>
+              <TextField name='name' floatingLabelText='Name' onChange={this.handleNameChange} value={this.state.name} />
+            </form>
           </div>
           <div className='new-team--actions'>
-            <Button text='Salvar' onClick={() => this.onSave()} />
-            <Button text='Cancelar' onClick={() => this.goBack()} />
+            <FlatButton label='save' secondary onTouchTap={this.handleSave.bind(this)} />
+            <FlatButton label='cancel' secondary onTouchTap={this.handleCancel} />
           </div>
         </div>
       </div>
