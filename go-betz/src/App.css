@@ -1,25 +1,15 @@
-/* .app {
+.app {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: var(--grey-1);
-}
-
-.app--content {
-  flex: 1 0 auto;
-  padding: 1.5em 1.5em 0;
-  width: 100%;
-  max-width: 50%;
-  margin: 0 auto;
 }
 
 .page {
-  width: 100%;
   padding: .8em 1em 0;
   border-radius: 3px;
 }
 
-.inner--pager {
-  max-width: 50%; 
-  margin: 0 auto;
-} */
+.page form {
+  display: flex;
+  flex-direction: column;
+}

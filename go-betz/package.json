@@ -5,6 +5,7 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "material-ui": "^0.18.5",
+    "material-ui-number-input": "^5.0.19",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",

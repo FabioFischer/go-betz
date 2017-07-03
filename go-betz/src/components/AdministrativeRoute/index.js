@@ -1,23 +1,34 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom'
 
-import _ from 'lodash';
+import { ls } from './../../services';
 
-const AdministrativeRoute = ({ component: Component, ...rest }) => {
-  const renderMethod = props => {
-    // const currentUser = _.get(props.location, 'state.services.currentUser');
+class AdministrativeRoute extends React.Component {
+  renderMethod(props, Component) {
+    const currentUser = ls.get('current_user');
 
-    // const redirect = (<Redirect to={{ pathname: 'sign-in', state: { from: props.location } }} />);
+    const redirect = (<Redirect to={{ pathname: 'sign-in', state: { from: props.location } }} />);
 
-    // if (!currentUser) return redirect;
-    // if (!currentUser.isAdmin) return redirect;
+    if (!currentUser) {
+      alert('Não autorizado! 🤦🏻‍♂️');
+      return redirect;
+    }
+
+    const currentAdmin = ls.get('x-admin-token');
+
+    if (!currentAdmin) {
+      alert('Não autorizado! 🤦🏻‍♂️');
+      return redirect;
+    }
 
     return (<Component {...props} />);
-  };
+  }
 
-  return (
-    <Route {...rest} render={props => renderMethod(props)} />
-  );
+  render() {
+    const { path, component } = this.props;
+
+    return <Route path={path} render={p => this.renderMethod(p, component)} />
+  }
 };
 
 export default AdministrativeRoute;

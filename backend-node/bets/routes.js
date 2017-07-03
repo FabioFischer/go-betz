@@ -1,7 +1,8 @@
 const actions = require('./actions');
+const authHelper = require('./../helpers/auth');
 
 module.exports = app => {
-  app.get('/bets', actions.listBets);
+  app.get('/bets', authHelper.isAuthenticated, actions.listBets);
 
-  app.post('/bets', actions.saveBet);
+  app.post('/bets', authHelper.isAuthenticated, actions.saveBet);
 };

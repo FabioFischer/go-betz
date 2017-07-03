@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField, FlatButton } from 'material-ui';
 
-import { auth } from './../../services/';
+import { auth, ls } from './../../services/';
 
 class Signup extends React.Component {
   state = {
@@ -26,7 +26,9 @@ class Signup extends React.Component {
     };
 
     try {
-      await auth.signUp(requestBody);
+      const user = await auth.signUp(requestBody);
+
+      ls.save('current_user', user);
 
       this.props.history.push('matches');
     } catch (e) {
@@ -38,15 +40,15 @@ class Signup extends React.Component {
     return (
       <div className='sign-up page'>
         <div className='sign-up--content'>
-          <h2>Novo registro</h2>
+          <h2>NEW USER</h2>
           <form>
             <TextField name='email' value={this.state.email} onChange={this.handleEmailChange} floatingLabelText='Email' />
             <TextField name='username' value={this.state.username} onChange={this.handleUsernameChange} floatingLabelText='Usuário' />
             <TextField name='password' value={this.state.password} onChange={this.handlePasswordChange} floatingLabelText='Senha' type='password' />
           </form>
-          <div className='sign-up'>
-            <FlatButton label='Salvar' primary onTouchTap={this.handleRegistration.bind(this)} />
-            <FlatButton label='Cancelar' primary onTouchTap={this.handleCancel} />
+          <div className='sign-up--actions'>
+            <FlatButton label='save' primary onTouchTap={this.handleRegistration.bind(this)} />
+            <FlatButton label='cancel' primary onTouchTap={this.handleCancel} />
           </div>
         </div>
       </div>

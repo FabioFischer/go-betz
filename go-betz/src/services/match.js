@@ -10,12 +10,28 @@ const listMatches = async () => {
   return matches;
 };
 
-const saveMatch = async () => {
+const saveMatch = async attributes => {
   const api = Fetch.create(baseUrl);
 
-  const match = await api.post('/matches');
+  const match = await api.post('/matches', attributes);
 
   return match;
 };
 
-export default { listMatches, saveMatch };
+const declareWinner = async attributes => {
+  const api = Fetch.create(baseUrl);
+
+  const match = await api.post('/matches/declare_winnner', attributes);
+
+  return match;
+};
+
+const closeBets = async attributes => {
+  const api = Fetch.create(baseUrl);
+
+  const match = await api.post('/matches/close_bets', attributes);
+
+  return match;
+};
+
+export default { listMatches, saveMatch, declareWinner, closeBets };

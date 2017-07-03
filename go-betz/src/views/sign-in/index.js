@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TextField, FlatButton } from 'material-ui';
-import { auth } from './../../services';
+import { auth, ls } from './../../services';
 
 class Signin extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Signin extends React.Component {
 
   handlePasswordChange = (event, newValue) => this.setState({ password: newValue });
 
-  handleSignup = () => super.goTo('sign-up');
+  handleSignup = () => this.props.history.push('sign-up');
 
   async handleLogin(event) {
     event.preventDefault();
@@ -28,7 +28,11 @@ class Signin extends React.Component {
     };
 
     try {
-      await auth.signIn(requestBody);
+      const user = await auth.signIn(requestBody);
+
+      ls.save('current_user', user);
+
+      await auth.hasAdministrativeRole({ userId: user.id });
 
       this.props.history.push('matches');
     } catch (e) {
@@ -40,16 +44,16 @@ class Signin extends React.Component {
     return (
       <div className='sign-in page inner--page'>
         <div className='sign-in--content'>
-          <h3>Login</h3>
+          <h2>LOGIN</h2>
           <div className='sign-in--form'>
             <form>
-              <TextField hintText='example@example.com' name='email' value={this.state.email} floatingLabelText='Email' onChange={this.handleEmailChange} />
-              <TextField hintText='minha-senha-segura' name='password' value={this.state.password} floatingLabelText='Senha' onChange={this.handlePasswordChange} type='password' />
+              <TextField name='email' value={this.state.email} floatingLabelText='Email' onChange={this.handleEmailChange} />
+              <TextField name='password' value={this.state.password} floatingLabelText='Senha' onChange={this.handlePasswordChange} type='password' />
             </form>
           </div>
           <div className='sign-in--action'>
-            <FlatButton label='Entrar' primary onTouchTap={this.handleLogin.bind(this)} />
-            <FlatButton label='Novo cadastro' primary onTouchTap={this.handleSignup} />
+            <FlatButton label='sign-in' primary onTouchTap={this.handleLogin.bind(this)} />
+            <FlatButton label='new user' primary onTouchTap={this.handleSignup} />
           </div>
         </div>
       </div>

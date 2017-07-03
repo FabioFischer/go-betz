@@ -3,6 +3,8 @@ const models = require('./../models');
 const Match = models.t_match;
 const Team = models.t_team;
 
+const transactionHelper = require('./../helpers/transaction');
+
 const listMatches = async (request, response) => {
   const matches = await Match.findAll();
   const teams = await Team.findAll();
@@ -18,11 +20,12 @@ const listMatches = async (request, response) => {
 
       let winner;
 
-      if (match.fk_winner) winner = match.winner_id === teamA.id ? teamA : teamB;
+      if (match.winner_id) winner = match.winner_id === teamA.id ? teamA : teamB;
 
       return {
+        id: match.id,
         description: match.description,
-        date: match.date,
+        isOpen: match.isOpen,
         teamA,
         teamB,
         winner
@@ -33,13 +36,13 @@ const listMatches = async (request, response) => {
 };
 
 const saveMatch = async (request, response) => {
-  const { description, date, teamA, teamB } = request.body;
+  const { description, teamA, teamB } = request.body;
 
   const createdMatch = await Match.create({
-    description,
-    date,
+    description: description,
     team_1_id: teamA,
-    team_2_id: teamB
+    team_2_id: teamB,
+    isOpen: true
   });
 
   const normalizedMatch = createdMatch.dataValues;
@@ -47,11 +50,26 @@ const saveMatch = async (request, response) => {
   response.json({ match: normalizedMatch });
 };
 
-const declareWinner = (request, response) => {
-  
+const declareWinner = async (request, response) => {
+  const { matchId, teamId } = request.body;
+
+  const updatedMatch = await Match.update({ winner_id: teamId, isOpen: false }, { where: { id: matchId } });
+  const matches = await Match.findAll({ where: { id: matchId } });
+  const normalizedMatch = matches[0].dataValues;
+
+  transactionHelper.solveBets(normalizedMatch);
+
+  response.json({ match: normalizedMatch });
 };
 
-const closeBets = (request, response) => {
+const closeBets = async (request, response) => {
+  const { matchId } = request.body;
+
+  const updatedMatch = await Match.update({ isOpen: false }, { where: { id: matchId } });
+  const matches = await Match.findAll({ where: { id: matchId } });
+  const normalizedMatch = matches[0].dataValues;
+
+  response.json({ match: normalizedMatch });
 
 };
 

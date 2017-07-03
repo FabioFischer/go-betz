@@ -4,14 +4,16 @@ import { TextField } from 'material-ui';
 
 import { AdministrativeButton } from './../../components';
 
-import { team } from './../../services';
+import { auth } from './../../services';
 
-class NewTeam extends React.Component {
+class NewRole extends React.Component {
   state = {
-    name: ''
+    name: '',
+    level: 0
   };
 
   handleNameChange = (e, newValue) => this.setState({ name: newValue });
+  handleLevelChange = (e, newValue) => this.setState({ level: newValue });
 
   handleCancel = () => this.props.history.push('matches');
 
@@ -19,11 +21,12 @@ class NewTeam extends React.Component {
     event.preventDefault();
 
     const requestBody = {
-      name: this.state.name
+      name: this.state.name,
+      level: this.state.level
     };
 
     try {
-      await team.saveTeam(requestBody);
+      await auth.saveRole(requestBody);
 
       this.props.history.push('matches');
     } catch (e) {
@@ -35,10 +38,11 @@ class NewTeam extends React.Component {
     return (
       <div className='new-team page'>
         <div className='new-team--content'>
-          <h2>NEW TEAM</h2>
+          <h2>NEW ROLE</h2>
           <div>
             <form>
               <TextField name='name' floatingLabelText='Name' onChange={this.handleNameChange} value={this.state.name} />
+              <TextField name='level' floatingLabelText='Level' onChange={this.handleLevelChange} value={this.state.level} />
             </form>
           </div>
           <div className='new-team--actions'>
@@ -51,4 +55,4 @@ class NewTeam extends React.Component {
   }
 }
 
-export default NewTeam;
+export default NewRole;

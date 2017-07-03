@@ -22,7 +22,7 @@ const verifyPassword = (attempt, hash, salt) => {
 const createToken = user => {
   const options = {};
 
-  return jwt.sign('oxe-mas-isso-é-bom-demais-so', process.env.TOKEN_SECRET, options);
+  return jwt.sign(JSON.stringify(user), process.env.TOKEN_SECRET, options);
 };
 
 const isAuthenticated = (request, response, next) => {
@@ -41,9 +41,26 @@ const isAuthenticated = (request, response, next) => {
   });
 };
 
+const isAdmin = (request, response, next) => {
+  const token = request.headers['x-admin-token'];
+
+  if (!token) {
+    return response.status(403).send({ success: false, message: 'Não autorizado!' });
+  }
+
+  const secret = process.env.TOKEN_SECRET;
+  jwt.verify(token, secret, (err, decoded) => {
+    if (err) return response.status(403).send({ success: false, message: 'Não autorizado!' });
+
+    request.decoded = decoded;
+    next();
+  });
+};
+
 module.exports = {
   segurifyPassword,
   verifyPassword,
   isAuthenticated,
-  createToken
+  createToken,
+  isAdmin
 };

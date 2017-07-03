@@ -1,16 +1,27 @@
 import _ from 'lodash';
 
+import { ls } from './';
+
 const create = (baseUrl, authHeaders = {}) => {
   const defaultHeaders = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   };
 
+  if (ls.get('x-access-token')) {
+    defaultHeaders['x-access-token'] = ls.get('x-access-token');
+  }
+
+  if (ls.get('x-admin-token')) {
+    defaultHeaders['x-admin-token'] = ls.get('x-admin-token');
+  }
+
   const updateHeaders = headers => {
-    const expectedHeaders = ['x-access-token'];
+    const expectedHeaders = ['x-access-token', 'x-admin-token'];
 
     for (let header of expectedHeaders) {
       if (headers.has(header)) {
+        ls.save(header, headers.get(header));
         authHeaders[header] = headers.get(header);
       }
     }

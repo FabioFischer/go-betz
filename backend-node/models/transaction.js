@@ -1,14 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
   const Transaction = sequelize.define('t_transaction', {
-    transaction_id: DataTypes.INTEGER,
+    type: DataTypes.STRING, // add_credits, recover_credits, new_bet, win_bet, lost_bet
     user_id: DataTypes.INTEGER,
-    credit_card: DataTypes.STRING,
-    expiration_date: DataTypes.STRING,
-    cvv: DataTypes.STRING,
-    value: DataTypes.STRING,
-    tran_name: DataTypes.STRING,
-    tran_address: DataTypes.STRING,
-    tran_fone: DataTypes.STRING
+    value: DataTypes.STRING
   });
 
   return Transaction;

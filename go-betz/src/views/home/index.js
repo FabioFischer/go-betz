@@ -1,9 +1,7 @@
 import React from 'react';
 import { AppBar, Drawer } from 'material-ui';
 
-import { ComponentWrapper } from './../../components';
-
-class Home extends ComponentWrapper {
+class Home extends React.Component {
   state = {
     expanded: false
   };
@@ -11,9 +9,6 @@ class Home extends ComponentWrapper {
   onMenuClick = () => this.setState(prevState => ({ expanded: !prevState.expanded }));
 
   render() {
-    const isLogged = this.services ? this.services.currentUser : false;
-    const isAdmin = isLogged ? this.services.currentUser.isAdmin : false;
-
     const childrenComponent = (
       <Drawer open={this.state.expanded} docked={false} onRequestChange={(open) => this.setState({ expanded: open })}>
       </Drawer>

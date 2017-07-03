@@ -1,5 +1,5 @@
 const ls = {
-  get: key => JSON.parse(window.localStorage.getItem(key)),
+  get: key => JSON.parse(window.localStorage.getItem(key) || JSON.stringify('')),
 
   save: (key, data) => window.localStorage.setItem(key, JSON.stringify(data)),
 
